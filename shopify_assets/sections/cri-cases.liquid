@@ -1,0 +1,124 @@
+{% comment %}
+  CRi Energy - Custom Case Studies Grid Section for Shopify (Online Store 2.0)
+  Save this file as sections/cri-cases.liquid in your Shopify Theme editor.
+{% endcomment %}
+
+<div class="sf-cri-cases" style="background: {{ section.settings.bg_color }}; padding: {{ section.settings.padding_y }}px 0; color: #0f172a; font-family: 'Outfit', 'Noto Sans TC', sans-serif;">
+  <div class="shopify-container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    
+    <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #1b4332; margin-bottom: 12px;">
+        {{ section.settings.title }}
+      </h2>
+      <p style="color: #64748b; font-size: 1.05rem; max-width: 600px; margin: 0 auto;">
+        {{ section.settings.subtitle }}
+      </p>
+    </div>
+
+    <div class="cases-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 32px;">
+      {% for block in section.blocks %}
+        <div class="case-card" style="background: #ffffff; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #e2e8f0; display: flex; flex-direction: column;" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | img_url: '600x400', crop: 'center' }}" alt="{{ block.settings.title }}" style="width: 100%; height: 240px; object-fit: cover; border-bottom: 1px solid #e2e8f0;">
+          {% else %}
+            <div style="width: 100%; height: 240px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; color: #64748b;">
+              No Image Uploaded
+            </div>
+          {% endif %}
+          
+          <div class="case-body" style="padding: 24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span class="badge" style="display: inline-block; padding: 4px 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: #0077b6; color: #ffffff; border-radius: 4px; margin-bottom: 12px;">
+                {{ block.settings.badge }}
+              </span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #1b4332; margin-bottom: 12px;">
+                {{ block.settings.title }}
+              </h3>
+              <div class="case-text" style="color: #64748b; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">
+                {{ block.settings.description | newline_to_br }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CRi Case Studies",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "區塊主標題",
+      "default": "光儲一體化 實績案場"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "區塊副標題",
+      "default": "針對承重限制、防水要求與電網峰值提供全球實績工法。"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景顏色",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "上下外距 (px)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "case_study",
+      "name": "專案案例",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "案例照片"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "分類標籤",
+          "default": "Industrial Roof"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "專案標題",
+          "default": "案例 1：隆興冷凍廠屋頂光儲改裝"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "案例描述",
+          "default": "解決傳統光電鑽孔漏水痛點，以 560W 柔性板直接黏貼浪板波峰。免鑽孔、零漏水風險。配合 344kWh 儲能櫃進行每日峰谷差避峰套利。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CRi Case Studies",
+      "category": "Custom Sections",
+      "blocks": [
+        { "type": "case_study" },
+        { "type": "case_study" },
+        { "type": "case_study" }
+      ]
+    }
+  ]
+}
+{% endschema %}

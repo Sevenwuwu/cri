@@ -1,0 +1,138 @@
+{% comment %}
+  CRi Energy - Custom Team & Patents Section for Shopify (Online Store 2.0)
+  Save this file as sections/cri-about-team.liquid in your Shopify Theme editor.
+{% endcomment %}
+
+<div class="sf-cri-about-team" style="background: {{ section.settings.bg_color }}; padding: {{ section.settings.padding_y }}px 0; color: #0f172a; font-family: 'Outfit', 'Noto Sans TC', sans-serif;">
+  <div class="shopify-container" style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+    
+    <!-- Leadership Box -->
+    <div class="leader-box" style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; margin-bottom: 60px;">
+      <div style="text-align: center;">
+        <div style="width: 180px; height: 180px; border-radius: 50%; background: #f1f5f9; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; border: 3px solid #0077b6;">
+          <i class="fa-solid fa-user-tie" style="font-size: 5rem; color: #64748b;"></i>
+        </div>
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">{{ section.settings.leader_name }}</h3>
+        <p style="color: #0077b6; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">{{ section.settings.leader_title }}</p>
+        <span style="font-size: 0.85rem; color: #64748b;">{{ section.settings.leader_edu }}</span>
+      </div>
+      
+      <div>
+        <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: #1b4332; display: flex; align-items: center; gap: 8px;">
+          <span style="color:#0077b6;">■</span> {{ section.settings.leader_experience_title }}
+        </h4>
+        <div style="color: #64748b; font-size: 0.95rem; line-height: 1.6;">
+          {{ section.settings.leader_bio | newline_to_br }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Patents Section -->
+    <div style="margin-bottom: 60px;">
+      <h3 style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #1b4332; margin-bottom: 32px;">
+        {{ section.settings.patent_header }}
+      </h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px;">
+          <div style="color: #0077b6; font-size: 2.2rem; margin-bottom: 12px;"><i class="fa-solid fa-file-signature"></i></div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #1b4332; margin-bottom: 8px;">{{ section.settings.patent1_title }}</h4>
+          <p style="color: #64748b; font-size: 0.9rem; line-height: 1.5;">{{ section.settings.patent1_desc }}</p>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px;">
+          <div style="color: #0077b6; font-size: 2.2rem; margin-bottom: 12px;"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4 style="font-size: 1.15rem; font-weight: 800; color: #1b4332; margin-bottom: 8px;">{{ section.settings.patent2_title }}</h4>
+          <p style="color: #64748b; font-size: 0.9rem; line-height: 1.5;">{{ section.settings.patent2_desc }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CRi Leader & Patents",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "背景顏色",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "上下外距 (px)",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "leader_name",
+      "label": "研發領導姓名",
+      "default": "林于庭 博士"
+    },
+    {
+      "type": "text",
+      "id": "leader_title",
+      "label": "職稱",
+      "default": "研發創辦人 / 董事長"
+    },
+    {
+      "type": "text",
+      "id": "leader_edu",
+      "label": "學歷學位",
+      "default": "國立台灣大學 光電工程博士"
+    },
+    {
+      "type": "text",
+      "id": "leader_experience_title",
+      "label": "經歷標題",
+      "default": "25年國際綠能與光電產業資歷"
+    },
+    {
+      "type": "textarea",
+      "id": "leader_bio",
+      "label": "研發領導自傳/資歷",
+      "default": "林于庭博士為次世代輕質太陽能組件技術的開拓者，曾任美國上市公司常州亞瑪頓 CTO、美商 DuPont Solar 資深經理、美商 Sunflare 技術總監，主導開發多項 BIPV 建築整合光電及輕質封裝技術。\n\n2025/2026 年度起，帶領 CRi 與台灣大學 (NTU)、清華大學 (NTHU) 及工研院 (ITRI) 合作，全力投入鈣鈦礦/矽疊層太陽能電池晶圓研發，目標將效率提升至 30%+。"
+    },
+    {
+      "type": "text",
+      "id": "patent_header",
+      "label": "專利小標題",
+      "default": "中華民國 國家發明專利"
+    },
+    {
+      "type": "text",
+      "id": "patent1_title",
+      "label": "專利 1 標題",
+      "default": "發明專利第 I746034 號"
+    },
+    {
+      "type": "textarea",
+      "id": "patent1_desc",
+      "label": "專利 1 描述",
+      "default": "專利名稱：太陽能電池單元，其製備方法及含被之太陽能電池模組。定義了大曲率 0.5m 彎曲時，內部單晶電池不產生隱裂的安全無損封裝技術。"
+    },
+    {
+      "type": "text",
+      "id": "patent2_title",
+      "label": "專利 2 標題",
+      "default": "發明專利第 I850761 號"
+    },
+    {
+      "type": "textarea",
+      "id": "patent2_desc",
+      "label": "專利 2 描述",
+      "default": "專利名稱：雙面吸光型光伏電池結構。為垂直壁面貼合 BIPV 與大棚反射光設計，前後蓋板皆採用高透光高分子材料，收集反射散射光提升發電效率。"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CRi Leader & Patents"
+    }
+  ]
+}
+{% endschema %}
