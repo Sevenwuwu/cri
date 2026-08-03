@@ -277,4 +277,72 @@ document.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLang);
         });
     }
+
+    // 7. Partner Carousel Slider Logic (for partnerships.html)
+    const slides = document.querySelector('.carousel-slides');
+    const slideItems = document.querySelectorAll('.carousel-slide');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    if (slides && slideItems.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = slideItems.length;
+
+        // Clear existing dots just in case
+        if (dotsContainer) dotsContainer.innerHTML = '';
+
+        // Create dots
+        slideItems.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (idx === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(idx));
+            if (dotsContainer) dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function goToSlide(idx) {
+            currentIndex = idx;
+            updateCarousel();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Auto play every 5 seconds
+        let autoPlayTimer = setInterval(nextSlide, 5000);
+
+        // Reset timer on user interaction
+        const resetTimer = () => {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(nextSlide, 5000);
+        };
+
+        if (nextBtn) nextBtn.addEventListener('click', resetTimer);
+        if (prevBtn) prevBtn.addEventListener('click', resetTimer);
+        dots.forEach(dot => dot.addEventListener('click', resetTimer));
+    }
 });

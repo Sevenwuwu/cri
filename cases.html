@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧光儲實績案場 | CRi 嘉睿能源</title>
-    <meta name="description" content="CRi 嘉睿能源全球與台灣本地 8 大光儲一體化實績案例。包含中油加油站儲能系統、工商業屋頂與大棚光伏改裝案例。">
+    <title>全球實績案場與電網級儲能案例 | CRi 嘉睿能源</title>
+    <meta name="description" content="瀏覽 CRi 嘉睿能源與合作夥伴在全球建置的指標性光儲案場。包含台南麻豆 305MWh 儲能中心、宜蘭 125MWh 案場、英國東部 250MW 大型儲能管線。">
+    <meta name="keywords" content="光儲實績, 儲能案場, 電網調頻, e-dReg 輔助服務, sReg 備轉, 英國儲能項目">
+    <meta property="og:title" content="全球實績案場與電網級儲能案例 | CRi 嘉睿能源">
+    <meta property="og:description" content="瀏覽 CRi 嘉睿能源與合作夥伴在全球建置的指標性光儲案場。包含台南麻豆 305MWh 儲能中心、宜蘭 125MWh 案場、英國東部 250MW 大型儲能管線。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8000/cases.html">
+    <meta property="og:image" content="http://localhost:8000/images/logo.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Style Sheet -->
@@ -33,6 +39,7 @@
                 <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
                 <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
                 <a href="cases.html" class="active"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+                <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
                 <a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
                 <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
             </nav>
@@ -65,6 +72,7 @@
             <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
             <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
             <a href="cases.html" class="drawer-link active"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+            <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
             <a href="calculator.html" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
             <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
             <a href="contact.html" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
@@ -72,10 +80,10 @@
     </div>
 
     <!-- Inner Hero -->
-    <section class="hero-section" style="padding: 120px 0 60px 0;">
+    <section class="hero-section hero-cases" style="padding: 120px 0 60px 0;">
         <div class="container text-center">
-            <h1 lang="zh" class="gradient-text" style="font-size: 3rem; font-weight:800;">光儲一體化 實績案場</h1>
-            <h1 lang="en" class="gradient-text" style="font-size: 3rem; font-weight:800;">Global & Local Case Studies</h1>
+            <h1 lang="zh" class="gradient-text inner-hero-title">光儲一體化 實績案場</h1>
+            <h1 lang="en" class="gradient-text inner-hero-title">Global & Local Case Studies</h1>
             <p lang="zh" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">針對承重限制、防漏水保固與峰谷套利需求，提供全場景最佳工法與電網整合。</p>
             <p lang="en" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">Proven lightweight modules and energy storage structures optimized for harsh commercial assets.</p>
         </div>
@@ -84,108 +92,130 @@
     <!-- Project Cases Grid -->
     <section class="section bg-light" style="padding-top: 40px;">
         <div class="container">
-            <div class="cases-grid">
+                        <div class="cases-grid">
                 <!-- Case 1 -->
                 <div class="case-card">
-                    <img src="images/factory_solar_roof.jpg" alt="Case 1" style="width:100%; height:240px; object-fit:cover;">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-tower-cell" style="font-size:5rem; color:var(--primary);"></i>
+                    </div>
                     <div class="case-body">
-                        <span class="case-badge">Industrial Roof</span>
-                        <h3 lang="zh">1. 隆興冷凍廠屋頂光儲改裝</h3>
-                        <h3 lang="en">1. Longxing Cold Storage Roof</h3>
-                        <p lang="zh">解決傳統剛性光電鑽孔漏水痛點，以 560W 柔性板直接黏貼浪板波峰。免鑽孔、零漏水風險，耐 17 級強颱。配合 344kWh 儲能櫃進行每日峰谷差避峰套利，大幅節省年電費。</p>
-                        <p lang="en">Avoided roof leaks from mechanical drilling by bonding 560W flexible panels directly onto metal ridges. Paired with 344kWh liquid-cooled storage for daily peak-shaving, saving millions annually.</p>
+                        <span class="case-badge">Utility ESS</span>
+                        <h3 lang="zh">1. 鋼鐵廠 Madou 儲能中心 (e-dReg)</h3>
+                        <h3 lang="en">1. Madou BESS Hub (80MW / 305MWh)</h3>
+                        <p lang="zh">台灣台南電網級 e-dReg 輔助服務、電力備份與交易專案。協助鋼鐵大廠平衡尖峰負載與參與電力交易市場，提供超大型電網支持。</p>
+                        <p lang="en">Tainan, Taiwan. Grid-scale e-dReg ancillary services, backup, and power trading. Deploys advanced energy control systems for steel plants.</p>
                     </div>
                 </div>
 
                 <!-- Case 2 -->
                 <div class="case-card">
-                    <img src="images/greenhouse_solar.jpg" alt="Case 2" style="width:100%; height:240px; object-fit:cover;">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-industry" style="font-size:5rem; color:var(--primary);"></i>
+                    </div>
                     <div class="case-body">
-                        <span class="case-badge">Agriculture</span>
-                        <h3 lang="zh">2. 設施農業綠色溫室大棚</h3>
-                        <h3 lang="en">2. Curved Glass Agricultural Greenhouse</h3>
-                        <p lang="zh">溫室結構輕巧、不耐重型玻璃板與抗風支架。採用高透光、防眩光的 240W 柔性板貼合圓弧玻璃頂部，實現綠色發電與部分遮陽，同時維持棚內溫濕度微控系統供電。</p>
-                        <p lang="en">Laminated 240W flexible panels onto curved greenhouse glasses. Avoided structural reinforcement costs while supplying solar backup power for automated temperature and water networks inside.</p>
+                        <span class="case-badge">Industrial Park</span>
+                        <h3 lang="zh">2. 宜蘭科技園區電網儲能案場</h3>
+                        <h3 lang="en">2. Yilan Industrial Park BESS</h3>
+                        <p lang="zh">配置 29 套大容量儲能系統參與 e-dReg 併網輔助服務，溫差小於 3℃，為大型工業園區提供電網動態頻率調節與緊急電力調度。</p>
+                        <p lang="en">Yilan, Taiwan. 50MW / 125MWh grid ancillary services across 29 modular setups, managing thermal drift under strict safety thresholds.</p>
                     </div>
                 </div>
 
                 <!-- Case 3 -->
                 <div class="case-card">
-                    <img src="images/bipv_facade.jpg" alt="Case 3" style="width:100%; height:240px; object-fit:cover;">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-microchip" style="font-size:5rem; color:var(--primary);"></i>
+                    </div>
                     <div class="case-body">
-                        <span class="case-badge">BIPV Wall</span>
-                        <h3 lang="zh">3. 都市帷幕大樓立面整合 (BIPV)</h3>
-                        <h3 lang="en">3. Commercial High-Rise BIPV Wall</h3>
-                        <p lang="zh">利用專利雙面吸光型光伏電池結構，貼合於高層寫字樓南向立面帷幕玻璃。抗強風壓、防眩光，可吸收地面漫射光，比普通單面柔性板提升 12% 發電增益，降低大樓夏日空調負荷。</p>
-                        <p lang="en">Applied double-sided absorption panels directly onto vertical high-rise glass cladding. Resists high wind loads while leveraging ground reflections to deliver 12% more power yield than single-sided panels.</p>
+                        <span class="case-badge">C&I BTM</span>
+                        <h3 lang="zh">3. 群創光電 Fab7 廠區儲能系統</h3>
+                        <h3 lang="en">3. InnoLux Corporation Fab7 BESS</h3>
+                        <p lang="zh">台南科學園區 Behind-the-Meter (BTM) 廠載防護與旋轉備轉 (sReg) 專案。為高科技晶圓面板廠提供微秒級不斷電防護，保障生產良率。</p>
+                        <p lang="en">Tainan, Taiwan. 40MW / 48.5MWh behind-the-meter spinning reserve (sReg), delivering microsecond-level backup power to chip fabrication plants.</p>
                     </div>
                 </div>
 
                 <!-- Case 4 -->
                 <div class="case-card">
-                    <img src="images/ev_charging_station.jpg" alt="Case 4" style="width:100%; height:240px; object-fit:cover;">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-solar-panel" style="font-size:5rem; color:var(--primary);"></i>
+                    </div>
                     <div class="case-body">
-                        <span class="case-badge">Carport & ESS</span>
-                        <h3 lang="zh">4. 智慧光儲充一體化車棚</h3>
-                        <h3 lang="en">4. EV Smart Charging Solar Carport</h3>
-                        <p lang="zh">柔性單晶光電直接黏貼於輕鋼構車棚弧形頂板上，配置 344kWh 智能液冷儲能櫃與快充樁。在白天光照期儲電，傍晚快充高峰放電，解決快充站變壓器容量限額痛點，平滑電網衝擊。</p>
-                        <p lang="en">Fitted flexible solar modules directly onto curved steel carport decks. Integrated with 344kWh liquid-cooled batteries to discharge during peak fast-charging rushes, easing pressure on distribution grids.</p>
+                        <span class="case-badge">Solar+Storage</span>
+                        <h3 lang="zh">4. 台電彰濱光儲一體化平滑專案</h3>
+                        <h3 lang="en">4. Taipower Changbin Solar-BESS</h3>
+                        <p lang="zh">彰化濱海太陽能與大型液冷儲能一體化項目。實現光伏出力平滑化與動態調度，提高光電廠饋線利用效率，平滑電網衝擊。</p>
+                        <p lang="en">Changhua, Taiwan. 12MW / 45.31MWh solar PV + BESS grid smoothing. Combines lightweight solar panel output with containerized BESS arrays.</p>
                     </div>
                 </div>
 
                 <!-- Case 5 -->
                 <div class="case-card">
-                    <div style="width:100%; height:240px; background:var(--primary); display:flex; align-items:center; justify-content:center; color:#ffffff;">
-                        <i class="fa-solid fa-gas-pump" style="font-size:5rem; opacity:0.8;"></i>
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-globe" style="font-size:5rem; color:var(--primary);"></i>
                     </div>
                     <div class="case-body">
-                        <span class="case-badge">Station BESS</span>
-                        <h3 lang="zh">5. 中油桃園啟東加油站 [50kWh]</h3>
-                        <h3 lang="en">5. CPC Gas Station BESS, Taoyuan</h3>
-                        <p lang="zh">中油指標性安全示範案。採用 e-LiFe (易來福) 具防爆安全認證之軟碳 (soft carbon) 技術 LFP 電芯，完美通過加油站極嚴格之消防與防爆防雷安規檢測，穩定供應加油機與站區後備電源。</p>
-                        <p lang="en">Taiwan CPC's milestone safety project. Deployed e-LiFe LFP packs with soft carbon tech, fully certified under gas station fire, lightning and explosion hazards, securing stable backup grid power.</p>
+                        <span class="case-badge">Global Grid</span>
+                        <h3 lang="zh">5. 澳洲 FCAS 電網輔助服務專案</h3>
+                        <h3 lang="en">5. Australia FCAS Utility BESS</h3>
+                        <p lang="zh">澳洲國家電力市場 (NEM) 頻率控制輔助服務專案。提供高速有功功率注入與電網支持，符合南澳地區極嚴苛的調頻規範。</p>
+                        <p lang="en">Australia. 4.99MW / 10MWh utility BESS, executing active frequency response and grid support under NEM codes.</p>
                     </div>
                 </div>
 
                 <!-- Case 6 -->
-                <div style="border:1.5px solid var(--accent);" class="case-card">
-                    <div style="width:100%; height:240px; background:var(--dark); display:flex; align-items:center; justify-content:center; color:#ffffff;">
-                        <i class="fa-solid fa-truck-ramp-box" style="font-size:5rem; color:var(--accent);"></i>
+                <div class="case-card">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-server" style="font-size:5rem; color:var(--primary);"></i>
                     </div>
                     <div class="case-body">
-                        <span class="case-badge">Utility ESS</span>
-                        <h3 lang="zh">6. 苗栗/彰化/高雄工商業貨櫃儲能案場</h3>
-                        <h3 lang="en">6. C&I Container Storage, Taiwan</h3>
-                        <p lang="zh">包含苗栗 1.1MWh、彰化 2MWh、高雄 1MWh 工商企業端用電大戶專案。引進士林電機與台達電 PCS 電網控制櫃，配置微通道精密液冷控制，溫差小於 3℃，協助廠商落實淨零碳排指標。</p>
-                        <p lang="en">Completed Miaoli (1.1MWh), Changhua (2MWh), and Kaohsiung (1MWh) for heavy electricity consumers. Installed Shihlin Electric & Delta PCS, managing temp deviations under 3℃ to secure longer cycle life.</p>
+                        <span class="case-badge">Microgrid</span>
+                        <h3 lang="zh">6. 荷蘭 Fudura 廠載智慧微電網</h3>
+                        <h3 lang="en">6. Fudura Microgrid Portfolio</h3>
+                        <p lang="zh">荷蘭埃因霍溫理工大學及賽默飛世爾（Thermo Fisher）廠區之 BTM 微電網。配置 24/7 自動負載優化管理與雙向電力調度。</p>
+                        <p lang="en">Netherlands. 1.7MW / 2.1–6.37MWh behind-the-meter microgrids, managing campus load profiles and dynamic pricing arbitrage.</p>
                     </div>
                 </div>
 
                 <!-- Case 7 -->
                 <div class="case-card">
-                    <div style="width:100%; height:240px; background:var(--primary); display:flex; align-items:center; justify-content:center; color:#ffffff;">
-                        <i class="fa-solid fa-globe" style="font-size:5rem; opacity:0.8;"></i>
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-truck" style="font-size:5rem; color:var(--primary);"></i>
                     </div>
                     <div class="case-body">
-                        <span class="case-badge">Global BIPV</span>
-                        <h3 lang="zh">7. 杜拜 Mall of Emirates 2MW 車棚</h3>
-                        <h3 lang="en">7. Dubai Mall of Emirates 2MW Carport</h3>
-                        <p lang="zh">阿聯酋指標大型光電項目。利用高分子前蓋板與抗風沙 POE 封裝結構，克服中東地區極端高溫與沙塵侵蝕，大幅減少了車棚框架結構的負重，至今已平穩運行多年。</p>
-                        <p lang="en">Iconic UAE commercial solar array. Outfitted with high-transmittance membranes and anti-sandstorm POE layers to withstand desert heats, saving structural reinforcement costs across carports.</p>
+                        <span class="case-badge">US Grid</span>
+                        <h3 lang="zh">7. 美國工商業光儲一體化項目</h3>
+                        <h3 lang="en">7. US Commercial Solar-Storage</h3>
+                        <p lang="zh">配置於美國多個工業園區的 BTM 配儲項目。具備智慧削峰填谷與電力備份功能，符合 IEEE 1547 標準。</p>
+                        <p lang="en">USA. 2.3MW / 10MWh PV + BESS integration, delivering dynamic charge management and power backings.</p>
                     </div>
                 </div>
 
                 <!-- Case 8 -->
                 <div class="case-card">
-                    <div style="width:100%; height:240px; background:var(--dark); display:flex; align-items:center; justify-content:center; color:#ffffff;">
-                        <i class="fa-solid fa-bolt" style="font-size:5rem; color:var(--accent);"></i>
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-wheat-awn" style="font-size:5rem; color:var(--primary);"></i>
                     </div>
                     <div class="case-body">
-                        <span class="case-badge">Overlay Repower</span>
-                        <h3 lang="zh">8. 舊光電電站就地改裝 (2.0倍增益)</h3>
-                        <h3 lang="en">8. Station repowering overlay retrofits</h3>
-                        <p lang="zh">老舊屋頂電站玻璃面板效率退化至原先 10%。在不拆除原鋼架的基礎下，直接以氣候結構膠將 560W 柔性單晶板覆貼於失效面板上。原地發電容量翻倍，發電效益顯著增長。</p>
-                        <p lang="en">Retrofitting degraded crystalline panels. Affixed lightweight CRi 560W modules flat over existing useless glass structures. Doubled the solar capacity without bracket reconstruction expenses.</p>
+                        <span class="case-badge">Agri-PV</span>
+                        <h3 lang="zh">8. 設施農業溫室與圓弧光儲</h3>
+                        <h3 lang="en">8. Agricultural Circular Solar-BESS</h3>
+                        <p lang="zh">圓弧玻璃溫室專利貼合項目。利用 240W 輕質柔性板直接黏貼，兼顧高透光發電與作物避光遮陽，搭配離網儲能櫃供電。</p>
+                        <p lang="en">Curved glass frames fitted with 240W flexible modules. Pairs with battery storage to supply greenhouse micro-systems.</p>
+                    </div>
+                </div>
+
+                <!-- Case 9 -->
+                <div style="border:1.5px solid var(--primary);" class="case-card">
+                    <div style="width:100%; height:240px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-earth-europe" style="font-size:5rem; color:var(--primary);"></i>
+                    </div>
+                    <div class="case-body">
+                        <span class="case-badge">UK BESS</span>
+                        <h3 lang="zh">9. 英國東部 250MW 電網側大型儲能項目</h3>
+                        <h3 lang="en">9. UK 250MW Grid-Side BESS (East of England)</h3>
+                        <p lang="zh">與英國能源基建夥伴 Power UK (poweruk.uk) 聯合開發。整合 e-LiFe 貨櫃儲能系統與華城電機升壓變壓器，完全符合英國 G99/G100 併網要求與 Approved Document B 消防安全法規，通過慕尼黑再保險 (Munich Re) 技術評估與銀行可貸性查核。</p>
+                        <p lang="en">Jointly developed with UK infrastructure partner Power UK. Integrates e-LiFe BESS with Fortune Electric KEMA-certified transformers, fully compliant with UK G99 grid connection codes, Munich Re technical audits, and Approved Document B fire standards.</p>
                     </div>
                 </div>
             </div>
@@ -213,10 +243,11 @@
                 <h4 lang="zh">快速連結</h4>
                 <h4 lang="en">Quick Links</h4>
                 <ul>
-                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Core Tech</span></a></li>
+                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
                     <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
                     <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
-                    <li><a href="cases.html" class="active"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
+                    <li><a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
+                    <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
                     <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
                     <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
                 </ul>

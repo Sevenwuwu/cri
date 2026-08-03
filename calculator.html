@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧光儲 ROI 效益估算 | CRi 嘉睿能源</title>
-    <meta name="description" content="CRi 嘉睿能源智慧光儲配置年省效益估算工具。輸入可用坪數與場景類型，即時運算年發電量、碳抵消與峰谷套利收益。">
+    <title>智慧光儲 ROI 效益與配儲線上估算器 | CRi 嘉睿能源</title>
+    <meta name="description" content="免費線上評估工具。輸入您的工廠或溫室屋頂面積，即時估算太陽能建置容量、儲能配置、年發電量、減碳效益與年省電費，為企業淨零決策提供精準數據。">
+    <meta name="keywords" content="太陽能收益估算, 儲能ROI計算, 減碳計算器, 用電大戶省電費, 綠能投資評估">
+    <meta property="og:title" content="智慧光儲 ROI 效益與配儲線上估算器 | CRi 嘉睿能源">
+    <meta property="og:description" content="免費線上評估工具。輸入您的工廠或溫室屋頂面積，即時估算太陽能建置容量、儲能配置、年發電量、減碳效益與年省電費，為企業淨零決策提供精準數據。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8000/calculator.html">
+    <meta property="og:image" content="http://localhost:8000/images/logo.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Style Sheet -->
@@ -33,6 +39,7 @@
                 <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
                 <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
                 <a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+                <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
                 <a href="calculator.html" class="active"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
                 <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
             </nav>
@@ -65,6 +72,7 @@
             <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
             <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
             <a href="cases.html" class="drawer-link"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+            <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
             <a href="calculator.html" class="drawer-link active"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
             <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
             <a href="contact.html" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
@@ -72,10 +80,10 @@
     </div>
 
     <!-- Inner Hero -->
-    <section class="hero-section" style="padding: 120px 0 60px 0;">
+    <section class="hero-section hero-calculator" style="padding: 120px 0 60px 0;">
         <div class="container text-center">
-            <h1 lang="zh" class="gradient-text" style="font-size: 3rem; font-weight:800;">光儲聯合 ROI 效益估算</h1>
-            <h1 lang="en" class="gradient-text" style="font-size: 3rem; font-weight:800;">ROI & Capacity Sizing Calculator</h1>
+            <h1 lang="zh" class="gradient-text inner-hero-title">光儲聯合 ROI 效益估算</h1>
+            <h1 lang="en" class="gradient-text inner-hero-title">ROI & Capacity Sizing Calculator</h1>
             <p lang="zh" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">輸入可用屋頂面積，即時模擬發電容量與配儲年套利回報，對接台灣最新強制光電條款。</p>
             <p lang="en" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">Enter your available roof space to simulate solar power capacity, emission savings, and battery arbitrage gains.</p>
         </div>
@@ -176,7 +184,7 @@
             </div>
 
             <!-- Regulation Box -->
-            <div class="repower-highlight-box mt-3" style="background:#ffffff; color:var(--dark); border:1px solid var(--border); padding:32px;">
+            <div class="repower-highlight-box mt-3" style="background:var(--light); color:var(--dark); border:1px solid var(--border); padding:32px;">
                 <div class="repower-content" style="flex: 1 1 100%;">
                     <h3 lang="zh" style="font-weight:800; font-size:1.4rem; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-scale-balanced"></i> 台灣再生能源發展條例 - 屋頂光電規範 (2025/2026生效)</h3>
                     <h3 lang="en" style="font-weight:800; font-size:1.4rem; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-scale-balanced"></i> Taiwan Renewable Energy Act - Rooftop Solar mandates</h3>
@@ -218,11 +226,12 @@
                 <h4 lang="zh">快速連結</h4>
                 <h4 lang="en">Quick Links</h4>
                 <ul>
-                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Core Tech</span></a></li>
+                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
                     <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
                     <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
                     <li><a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
-                    <li><a href="calculator.html" class="active"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
+                    <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
+                    <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
                     <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
                 </ul>
             </div>
