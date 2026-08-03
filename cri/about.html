@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心技術與國家發明專利 | CRi 嘉睿能源</title>
+    <meta name="description" content="深入了解 CRi 嘉睿能源的次世代 3i 綠能研發架構。與台大、清大、工研院合作開發 30%+ 鈣鈦礦-矽疊層電池，擁有多項中華民國國家發明專利，建立自主可控的非中資供應鏈。">
+    <meta name="keywords" content="光伏專利, 鈣鈦礦太陽能, 疊層電池研發, 雙面吸光型光伏, 非中資供應鏈, 綠能研發">
+    <meta property="og:title" content="核心技術與國家發明專利 | CRi 嘉睿能源">
+    <meta property="og:description" content="深入了解 CRi 嘉睿能源的次世代 3i 綠能研發架構。與台大、清大、工研院合作開發 30%+ 鈣鈦礦-矽疊層電池，擁有多項中華民國國家發明專利，建立自主可控的非中資供應鏈。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8000/about.html">
+    <meta property="og:image" content="http://localhost:8000/images/logo.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="lang-zh">
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="CRi Logo" width="40" height="40" style="border-radius:50%; object-fit:cover; border: 1.5px solid var(--border);">
+                <div class="logo-text">
+                    <span class="brand-cri">CRi</span>
+                    <span class="brand-name" lang="zh">嘉睿能源</span>
+                    <span class="brand-name" lang="en">Energy</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+                <a href="about.html" class="active"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+                <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+                <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+                <a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+                <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+                <a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+                <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-switch-btn" id="langToggle">
+                    <span lang="zh"><i class="fa-solid fa-globe"></i> EN</span>
+                    <span lang="en"><i class="fa-solid fa-globe"></i> 繁中</span>
+                </button>
+                <a href="contact.html" class="btn btn-accent nav-cta">
+                    <span lang="zh">免費評估</span>
+                    <span lang="en">Free Quote</span>
+                </a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer">
+        <div class="drawer-header">
+            <span class="brand-cri">CRi 嘉睿能源</span>
+            <button class="drawer-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="drawer-links">
+            <a href="index.html" class="drawer-link"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+            <a href="about.html" class="drawer-link active"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+            <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+            <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+            <a href="cases.html" class="drawer-link"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+            <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+            <a href="calculator.html" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+            <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+            <a href="contact.html" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
+        </nav>
+    </div>
+
+    <!-- Inner Hero -->
+    <section class="hero-section hero-about" style="padding: 120px 0 60px 0;">
+        <div class="container text-center">
+            <h1 lang="zh" class="gradient-text inner-hero-title">專利技術與領先團隊</h1>
+            <h1 lang="en" class="gradient-text inner-hero-title">Technology & Patents</h1>
+            <p lang="zh" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">由台大光電博士領軍，掌握次世代輕質光電核心智財權，打造高可靠的自主安全供應鏈。</p>
+            <p lang="en" style="color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 16px auto 0 auto;">Led by photonics Ph.D. with global green tech patents, creating secure non-China supply chains.</p>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section bg-light" style="padding: 60px 0;">
+        <div class="container" style="max-width:900px;">
+            <div class="repower-highlight-box" style="background:var(--light); color:var(--dark); border:1px solid var(--border); grid-template-columns: 0.8fr 1.2fr;">
+                <div style="text-align:center; padding: 20px;">
+                    <div style="width:180px; height:180px; border-radius:50%; background:#f1f5f9; margin: 0 auto 16px auto; overflow:hidden; border:3px solid var(--accent); display:flex; align-items:center; justify-content:center;">
+                        <i class="fa-solid fa-user-tie" style="font-size:6rem; color:var(--gray);"></i>
+                    </div>
+                    <h3 style="font-size:1.6rem; font-weight:800; color:var(--dark); margin-bottom:4px;">林于庭 博士</h3>
+                    <p style="color:var(--accent); font-weight:700; font-size:0.9rem;" lang="zh">研發創辦人 / 董事長</p>
+                    <p style="color:var(--accent); font-weight:700; font-size:0.9rem;" lang="en">Founder & Chairman</p>
+                    <span style="font-size:0.85rem; color:var(--gray); display:block; margin-top:8px;" lang="zh">國立台灣大學 光電工程博士</span>
+                    <span style="font-size:0.85rem; color:var(--gray); display:block; margin-top:8px;" lang="en">Ph.D. in Photonics (NTU)</span>
+                </div>
+                <div style="padding: 20px;">
+                    <h4 lang="zh" style="font-weight:700; margin-bottom:12px; color:var(--primary);"><i class="fa-solid fa-briefcase"></i> 25年國際綠能與光電產業資歷</h4>
+                    <h4 lang="en" style="font-weight:700; margin-bottom:12px; color:var(--primary);"><i class="fa-solid fa-briefcase"></i> 25 Years of Global Green Tech Experience</h4>
+                    
+                    <p lang="zh" style="font-size:0.95rem; color:var(--gray); line-height:1.6; margin-bottom:16px;">
+                        林于庭博士為次世代輕質太陽能組件技術的開拓者，曾任美國上市公司常州亞瑪頓 (Almaden) 技術總監 (CTO)、美商 DuPont Solar 資深經理、美商 Sunflare 南京研發中心技術總監，主導開發多項 Building-Integrated Photovoltaics (BIPV) 建築整合光電及輕質封裝技術。
+                    </p>
+                    <p lang="en" style="font-size:0.95rem; color:var(--gray); line-height:1.6; margin-bottom:16px;">
+                        Dr. Yu-Ting Lin is a pioneer in weightless solar module technology. Formerly served as CTO of Changzhou Almaden (SHE:002623), Senior Manager at DuPont Solar (US), and CTO of Sunflare Nanjing R&D Center. He has led multiple BIPV and lightweight encapsulation systems globally.
+                    </p>
+                    
+                    <p lang="zh" style="font-size:0.95rem; color:var(--gray); line-height:1.6;">
+                        **次世代研發計畫：** 2025/2026 年度起，帶領 CRi 與 **台灣大學 (NTU)、清華大學 (NTHU) 及工研院 (ITRI)** 合作，全力投入 **鈣鈦礦/矽疊層太陽能電池 (Perovskite/Silicon Tandem)** 晶圓研發，目標將模組轉換效率由 23.5% 提升至 **30%+** 以上的極限值。
+                    </p>
+                    <p lang="en" style="font-size:0.95rem; color:var(--gray); line-height:1.6;">
+                        **Next-Gen R&D:** From 2025/2026 onwards, leading CRi's joint research with **National Taiwan University (NTU), National Tsing Hua University (NTHU), and ITRI** on **Perovskite/Silicon Tandem** cell wafers, targeting conversions of **30%++**.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="section">
+        <div class="container">
+            <!-- Patents Section -->
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <h2 lang="zh" class="section-title">中華民國 <span class="gradient-text">國家發明專利</span></h2>
+                <h2 lang="en" class="section-title">ROC Patent <span class="gradient-text">Certifications</span></h2>
+            </div>
+            
+            <div class="features-grid" style="max-width: 900px; margin: 0 auto 60px auto;">
+                <div class="feature-card" style="background:var(--light); border:1px solid var(--border);">
+                    <div class="card-icon" style="color:var(--accent);"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3 lang="zh">發明專利第 I746034 號</h3>
+                    <h3 lang="en">Patent No. I746034</h3>
+                    <p lang="zh">**專利名稱：** 太陽能電池單元，其製備方法及含被之太陽能電池模組。<br>本專利界定了高分子膜材包覆單晶電池片、無損貼合與無應力封裝工法，確保組件在大曲率彎曲（半徑0.5m）時電池內部不產生隱裂。</p>
+                    <p lang="en">**Patent Name:** Solar cell unit, fabrication method, and module encapsulation. Defines stress-free polymer encapsulation layout, ensuring zero cell micro-cracks under large bending curvature (radius 0.5m).</p>
+                </div>
+                <div class="feature-card" style="background:var(--light); border:1px solid var(--border);">
+                    <div class="card-icon" style="color:var(--accent);"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 lang="zh">發明專利第 I850761 號</h3>
+                    <h3 lang="en">Patent No. I850761</h3>
+                    <p lang="zh">**專利名稱：** 雙面吸光型光伏電池結構。<br>為垂直壁面貼合 BIPV 與大棚反射光設計，前後蓋板皆採用高透光高分子材料，充分收集反射散射光，比一般單面柔性板提升 8-15% 的日照發電增益。</p>
+                    <p lang="en">**Patent Name:** Double-sided absorption photovoltaic cell structures. Designed for vertical BIPV wall panels and agricultural greenhouses, collecting ambient reflection to add 8-15% generation gains.</p>
+                </div>
+            </div>
+
+            <!-- Supply Chain Structure -->
+            <div class="repower-highlight-box mb-2" style="background:#f8f9fa; border:1px solid var(--border); color:var(--dark);">
+                <div class="repower-content">
+                    <h2 lang="zh" style="font-family:var(--font-heading); font-weight:800; font-size:2rem; margin-bottom:16px;"><i class="fa-solid fa-shield-halved text-success"></i> 非中資供應鏈安全結構</h2>
+                    <h2 lang="en" style="font-family:var(--font-heading); font-weight:800; font-size:2rem; margin-bottom:16px;"><i class="fa-solid fa-shield-halved text-success"></i> Secure Non-China Supply Chain</h2>
+                    
+                    <p lang="zh" style="color:var(--gray); margin-bottom:16px;">
+                        為防範國際貿易壁壘與資安、ESG 合規風險，CRi 輕質柔性太陽能組件建立自主可控的供應鏈，原料主要來自台灣及美歐領先材料大廠，確保優異耐久性。
+                    </p>
+                    <p lang="en" style="color:var(--gray); margin-bottom:16px;">
+                        To mitigate trade barriers and comply with strict ESG regulations, CRi established a reliable supply chain partnering with leading US, European, and Taiwanese manufacturers.
+                    </p>
+                    
+                    <ul class="product-specs-list" style="border-color:var(--border);">
+                        <li>
+                            <strong><span lang="zh">高分子前蓋板：</span><span lang="en">Front Membrane:</span></strong> 
+                            <span lang="zh">SABIC / 3M 提供之高透光抗紫外塑料前板。</span>
+                            <span lang="en">SABIC / 3M high-transmittance anti-UV protective polymer sheets.</span>
+                        </li>
+                        <li>
+                            <strong><span lang="zh">封裝膠膜 (POE/EVA)：</span><span lang="en">Encapsulation Film:</span></strong> 
+                            <span lang="zh">SABIC 生產之高品質高透水阻隔 POE 封裝層。</span>
+                            <span lang="en">High density water-barrier POE encapsulation layers by SABIC.</span>
+                        </li>
+                        <li>
+                            <strong><span lang="zh">銀漿焊帶線：</span><span lang="en">Ribbon Wire:</span></strong> 
+                            <span lang="zh">台灣昇貿科技 (Shenmao Technology Inc.) 低溫無鉛環保焊帶。</span>
+                            <span lang="en">Low-temperature lead-free ribbons by Taiwan Shenmao Technology.</span>
+                        </li>
+                        <li>
+                            <strong><span lang="zh">複合碳纖維背板：</span><span lang="en">Carbon Backsheet:</span></strong> 
+                            <span lang="zh">台灣台塑集團福懋興業 (Formosa Taffeta) 製造之高剛性耐候碳纖維板。</span>
+                            <span lang="en">Formosa Taffeta (Taiwan Formosa Plastics Group) durable carbon fiber panels.</span>
+                        </li>
+                        <li>
+                            <strong><span lang="zh">防水接線盒 (Junction Box)：</span><span lang="en">Junction Box:</span></strong> 
+                            <span lang="zh">美商 TE Connectivity / Enphase Energy 高規格 IP68 智慧接線盒。</span>
+                            <span lang="en">IP68 high-spec junction boxes by US TE Connectivity / Enphase Energy.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="repower-diagram" style="background:var(--light); border-color:var(--border);">
+                    <div class="diagram-label lang-zh" style="color:var(--dark);">輕質太陽能板結構</div>
+                    <div class="diagram-label lang-en" style="color:var(--dark);">WSM Layer Diagram</div>
+                    <img src="images/solar_structure.png" alt="R&D Structure Diagram" style="max-width:100%; height:auto; border-radius:var(--radius-sm); border:1px solid var(--border);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Alliance Section -->
+    <section class="section bg-light" style="padding: 60px 0; border-top: 1px solid var(--border);">
+        <div class="container" style="max-width: 900px; margin: 0 auto;">
+            <div class="section-header text-center" style="margin-bottom: 40px;">
+                <h2 lang="zh" style="font-weight: 800; font-size: 2.2rem; color: var(--primary);">全球戰略合作夥伴</h2>
+                <h2 lang="en" style="font-weight: 800; font-size: 2.2rem; color: var(--primary);">Global Strategic Alliances</h2>
+                <p lang="zh" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">透過國際領先企業的深度合作，我們為全球市場提供高安全、高融資性的智慧光儲解決方案。</p>
+                <p lang="en" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">Accelerating international expansion and delivery compliance through tier-one global energy partnerships.</p>
+            </div>
+            
+            <div class="repower-highlight-box" style="background:var(--light); color: var(--dark); border: 1px solid var(--border); grid-template-columns: 1fr; padding: 40px;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <i class="fa-solid fa-earth-europe" style="font-size: 4rem; color: var(--accent);"></i>
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 16px;">Power UK策略結盟</h3>
+                    <p style="color: var(--accent); font-weight: 700;" lang="zh">英國與歐洲能源基礎建設與 AFC 項目合作夥伴</p>
+                    <p style="color: var(--accent); font-weight: 700;" lang="en">UK & Europe Grid Infrastructure & AFC Asset Partner</p>
+                </div>
+                <div>
+                    <p lang="zh" style="font-size: 1.05rem; line-height: 1.7; color: var(--dark);">
+                        CRi Energy 與英國能源基礎建設開發商 <strong>Power UK (poweruk.uk)</strong> 達成深度設備供應與聯合開發協議。
+                        本協議重點在於配合 Power UK 於英國東部（East of England）推進的 <strong>250 MW+ 大型電網側儲能（BESS）項目管線</strong>。
+                        我們為該管線項目提供符合英國 G99 配電併網規範之 3.44MWh 貨櫃儲能系統，並高度整合華城電機（Fortune Electric）擁有 KEMA 短路試驗合格的電力變壓器與台達電 PCS，為歐洲電網調頻與備用電力市場提供堅實的硬體基石。
+                    </p>
+                    <p lang="en" style="font-size: 1.05rem; line-height: 1.7; color: var(--dark); margin-top: 12px;">
+                        CRi Energy has partnered with UK-based energy developer <strong>Power UK (poweruk.uk)</strong>. 
+                        This collaboration supports Power UK's <strong>250 MW+ utility-scale BESS pipeline</strong> in the East of England. 
+                        CRi supplies G99-compliant 3.44MWh containerized systems integrated with Fortune Electric's KEMA-certified grid-transformers and Delta PCS controllers, backed by Munich Re bankability reviews for the European capacity markets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="images/logo.png" alt="CRi Logo" width="32" height="32" style="border-radius:50%; object-fit:cover;">
+                    <span class="brand-cri">CRi 嘉睿能源</span>
+                </div>
+                <p lang="zh" class="footer-desc">致力開創可服務人類的乾淨、可再生、智能光儲能源。專注於次世代輕質柔性單晶太陽能與高安全液冷儲能系統研發量產，台灣在地封裝與整合製造，企業淨零碳排的最佳永續夥伴。</p>
+                <p lang="en" class="footer-desc">Committed to developing clean, renewable, and intelligent solar & storage systems that serve humanity. Offering Taiwan-made flexible modules and advanced LFP storage cabinets.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 lang="zh">快速連結</h4>
+                <h4 lang="en">Quick Links</h4>
+                <ul>
+                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
+                    <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
+                    <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
+                    <li><a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
+                    <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
+                    <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
+                    <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 lang="zh">聯繫資訊</h4>
+                <h4 lang="en">Contact Info</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> <span lang="zh">地址：台中市大里區科技路168號5樓之一</span><span lang="en">Address: 5F.-1, No. 168, Keji Rd., Dali Dist., Taichung City, Taiwan</span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span lang="zh">電話：04-2491-9698</span><span lang="en">Phone: +886-4-2491-9698</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> seven@crienergytw.com</li>
+                    <li><i class="fa-solid fa-certificate"></i> <span lang="zh">TUV SUD 認證柔性板 | CNAS 認證儲能電芯</span><span lang="en">TUV SUD Certified Solar | CNAS Certified Cells</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 CRi 嘉睿能源股份有限公司. All Rights Reserved. <span lang="zh">台灣在地整合製造</span><span lang="en">Integrated in Taiwan</span></p>
+                <p>
+                    <a href="#"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
+                    <a href="#"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>

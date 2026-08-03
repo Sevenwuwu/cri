@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRi 嘉睿能源 | 輕質柔性太陽能與智慧電網級儲能整合專家</title>
+    <meta name="description" content="CRi 嘉睿能源專注於次世代輕質柔性單晶太陽能（效率 30%+ 鈣鈦礦研發）與高安全液冷儲能系統研發整合，攜手台達電、華城電機等產業龍頭，提供用電大戶與電網級光儲一體化解決方案。">
+    <meta name="keywords" content="輕質太陽能, 柔性太陽能板, BIPV, 儲能系統, 電網級儲能, 鈣鈦礦疊層電池, 台達電儲能, 華城變壓器, 淨零碳排, ESG, 用電大戶">
+    <meta property="og:title" content="CRi 嘉睿能源 | 輕質柔性太陽能與智慧電網級儲能整合專家">
+    <meta property="og:description" content="CRi 嘉睿能源專注於次世代輕質柔性單晶太陽能（效率 30%+ 鈣鈦礦研發）與高安全液冷儲能系統研發整合，攜手台達電、華城電機等產業龍頭，提供用電大戶與電網級光儲一體化解決方案。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8000/index.html">
+    <meta property="og:image" content="http://localhost:8000/images/logo.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="lang-zh">
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="CRi Logo" width="40" height="40" style="border-radius:50%; object-fit:cover; border: 1.5px solid var(--border);">
+                <div class="logo-text">
+                    <span class="brand-cri">CRi</span>
+                    <span class="brand-name" lang="zh">嘉睿能源</span>
+                    <span class="brand-name" lang="en">Energy</span>
+                </div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+                <a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+                <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+                <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+                <a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+                <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+                <a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+                <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="lang-switch-btn" id="langToggle">
+                    <span lang="zh"><i class="fa-solid fa-globe"></i> EN</span>
+                    <span lang="en"><i class="fa-solid fa-globe"></i> 繁中</span>
+                </button>
+                <a href="contact.html" class="btn btn-accent nav-cta">
+                    <span lang="zh">免費評估</span>
+                    <span lang="en">Free Quote</span>
+                </a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer">
+        <div class="drawer-header">
+            <span class="brand-cri">CRi 嘉睿能源</span>
+            <button class="drawer-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="drawer-links">
+            <a href="index.html" class="drawer-link active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+            <a href="about.html" class="drawer-link"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+            <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+            <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+            <a href="cases.html" class="drawer-link"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
+            <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+            <a href="calculator.html" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+            <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+            <a href="contact.html" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-home">
+        <div class="hero-bg-glow"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="tagline">
+                    <span lang="zh"><i class="fa-solid fa-leaf"></i> 致力開創可服務人類的乾淨、可再生、智能光儲能源</span>
+                    <span lang="en"><i class="fa-solid fa-leaf"></i> Committed to Clean, Renewable, Intelligent Solar & Storage</span>
+                </div>
+                <h1 lang="zh" class="hero-title">次世代光儲一體化<br><span class="gradient-text">智慧能源轉型</span></h1>
+                <h1 lang="en" class="hero-title">Next-Gen Solar-Storage<br><span class="gradient-text">Intelligent Integration</span></h1>
+                
+                <p lang="zh" class="hero-subtitle">引領輕質柔性太陽能、建築光伏一體化（BIPV）與智能液冷儲能系統（BESS）的無縫融合。為您在需要的任何地方，打造安全、可靠、高融資性的自發自用永續能源。</p>
+                <p lang="en" class="hero-subtitle">Leading the seamless fusion of lightweight flexible solar, building-integrated photovoltaics (BIPV), and intelligent liquid-cooled BESS. Delivering secure, reliable, and bankable self-generation energy systems wherever you need it.</p>
+
+                <div class="hero-buttons">
+                    <a href="products-solar.html" class="btn btn-accent btn-lg">
+                        <span lang="zh">柔性光電</span>
+                        <span lang="en">Solar Modules</span>
+                    </a>
+                    <a href="products-storage.html" class="btn btn-outline btn-lg">
+                        <span lang="zh">智能儲能</span>
+                        <span lang="en">Energy Storage</span>
+                    </a>
+                </div>
+
+                <div class="hero-badges">
+                    <div class="hero-badge">
+                        <span class="badge-num">2.7<span class="badge-unit">mm</span></span>
+                        <span class="badge-label" lang="zh">柔性模組極薄厚度</span>
+                        <span class="badge-label" lang="en">Ultra-Thin Flexible Profile</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="badge-num">12,000<span class="badge-unit">cls</span></span>
+                        <span class="badge-label" lang="zh">儲能電芯超長循環壽命</span>
+                        <span class="badge-label" lang="en">ESS Cell Cycle Life</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="badge-num">Tier-1<span class="badge-unit">Grade</span></span>
+                        <span class="badge-label" lang="zh">Munich Re 國際保險背書</span>
+                        <span class="badge-label" lang="en">Munich Re-Backed Bankability</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="flex-panel-card">
+                    <div class="glow-ring"></div>
+                    <div class="panel-preview">
+                        <div class="flex-solar-panel">
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line horizontal"></div>
+                            <div class="grid-line vertical"></div>
+                            <div class="grid-line vertical"></div>
+                            <div class="grid-line vertical"></div>
+                            <div class="grid-line vertical"></div>
+                            <div class="sun-flare"></div>
+                        </div>
+                    </div>
+                    <div class="floating-data-card card-1">
+                        <i class="fa-solid fa-bolt text-accent"></i>
+                        <div>
+                            <h4 lang="zh">智慧液冷控溫</h4>
+                            <h4 lang="en">Smart Liquid Cooling</h4>
+                            <p lang="zh">溫差控制 ≤ 3℃</p>
+                            <p lang="en">Temp Deviation ≤ 3℃</p>
+                        </div>
+                    </div>
+                    <div class="floating-data-card card-2">
+                        <i class="fa-solid fa-shield text-success"></i>
+                        <div>
+                            <h4 lang="zh">極致安全保障</h4>
+                            <h4 lang="en">Extreme Safety</h4>
+                            <p lang="zh">針刺/擠壓無起火爆炸</p>
+                            <p lang="en">Zero Fire, Certified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Scrolling Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item"><span lang="zh">輕質柔性單晶光電</span><span lang="en">Lightweight Flexible Solar</span></div>
+            <div class="ticker-item"><span lang="zh">智慧液冷儲能櫃</span><span lang="en">Liquid-Cooled LFP BESS</span></div>
+            <div class="ticker-item"><span lang="zh">鈣鈦礦疊層組件研發</span><span lang="en">Perovskite Tandem Solar</span></div>
+            <div class="ticker-item"><span lang="zh">建築光伏一體化 BIPV</span><span lang="en">Building Integrated PV</span></div>
+            <div class="ticker-item"><span lang="zh">舊電站原地覆貼改造</span><span lang="en">Overlay Solar Repower</span></div>
+            <div class="ticker-item"><span lang="zh">華城電網級升壓變壓器</span><span lang="en">Fortune Grid Transformers</span></div>
+            <div class="ticker-item"><span lang="zh">台達防爆儲能櫃專利</span><span lang="en">Delta UL9540A BESS</span></div>
+            <div class="ticker-item"><span lang="zh">英國 G99/G100 併網合規</span><span lang="en">G99/G100 Compliance</span></div>
+            <div class="ticker-item"><span lang="zh">達拉移動微電網快充</span><span lang="en">Dara EV Charging Hubs</span></div>
+            <div class="ticker-item"><span lang="zh">Munich Re 再保險融資級</span><span lang="en">Munich Re Bankable</span></div>
+            <!-- Duplicate for infinite seamless scroll -->
+            <div class="ticker-item"><span lang="zh">輕質柔性單晶光電</span><span lang="en">Lightweight Flexible Solar</span></div>
+            <div class="ticker-item"><span lang="zh">智慧液冷儲能櫃</span><span lang="en">Liquid-Cooled LFP BESS</span></div>
+            <div class="ticker-item"><span lang="zh">鈣鈦礦疊層組件研發</span><span lang="en">Perovskite Tandem Solar</span></div>
+            <div class="ticker-item"><span lang="zh">建築光伏一體化 BIPV</span><span lang="en">Building Integrated PV</span></div>
+            <div class="ticker-item"><span lang="zh">舊電站原地覆貼改造</span><span lang="en">Overlay Solar Repower</span></div>
+            <div class="ticker-item"><span lang="zh">華城電網級升壓變壓器</span><span lang="en">Fortune Grid Transformers</span></div>
+            <div class="ticker-item"><span lang="zh">台達防爆儲能櫃專利</span><span lang="en">Delta UL9540A BESS</span></div>
+            <div class="ticker-item"><span lang="zh">英國 G99/G100 併網合規</span><span lang="en">G99/G100 Compliance</span></div>
+            <div class="ticker-item"><span lang="zh">達拉移動微電網快充</span><span lang="en">Dara EV Charging Hubs</span></div>
+            <div class="ticker-item"><span lang="zh">Munich Re 再保險融資級</span><span lang="en">Munich Re Bankable</span></div>
+        </div>
+    </div>
+
+    <!-- Core Technology Teaser Section -->
+    <section class="section advantages-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 lang="zh" class="section-title">次世代光電技術：<span class="gradient-text">鈣鈦礦-矽疊層電池</span></h2>
+                <h2 lang="en" class="section-title">Next-Gen Solar Tech: <span class="gradient-text">Perovskite-Silicon Tandem R&D</span></h2>
+                <p lang="zh" class="section-subtitle">引領光電轉換效率從 23.5% 飛躍至 30% 以上。專利輕質柔性單晶與建築一體化（BIPV）工法，無鋁邊框、無玻璃面板，重塑城市能源邊界。</p>
+                <p lang="en" class="section-subtitle">Pioneering cell conversion efficiency from 23.5% to over 30%. Patented lightweight flexible monomorphic cells and BIPV configurations without glass panels or frames.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--primary);"><i class="fa-solid fa-weight-hanging"></i></div>
+                    <h3 lang="zh">極致輕量負載</h3>
+                    <h3 lang="en">Ultra-Light Profile</h3>
+                    <p lang="zh">重量密度低於 2.7 kg/m²，為傳統鋼性組件的 1/5。採用特殊高分子前蓋板與封裝膜材，直接貼合，免除重型鋼骨與漏水隱憂。</p>
+                    <p lang="en">Weighs under 2.7 kg/m², which is 1/5 of rigid glass panels. Utilizes specialized polymer covers and direct structural bonding.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--primary);"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 lang="zh">高功率面密度</h3>
+                    <h3 lang="en">High Power Density</h3>
+                    <p lang="zh">單位面積輸出功率大於 210 W/m²，兼顧高透光率（壓花玻璃穿透率 &gt;93%），完美適應廠房屋頂與曲面大樓立面。</p>
+                    <p lang="en">Output power exceeds 210 W/m². Features high transmittance (&gt;93% embossed glass interface) for curved commercial facades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--primary);"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3 lang="zh">多層防護 BIPV 結構</h3>
+                    <h3 lang="en">BIPV Layer Engineering</h3>
+                    <p lang="zh">整合彩色裝飾層、高效電池片、阻燃 POE 封裝、蜂巢鋁板與防爆背板，實現安全隔熱、防火防眩光，與建物融為一體。</p>
+                    <p lang="en">Combines colored patterns, safety battery cells, fire-retardant POE layers, aluminum honeycomb, and insulation backing sheets.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="about.html" class="btn btn-outline">
+                    <span lang="zh">深入了解 3i 技術與專利項目</span>
+                    <span lang="en">Explore 3i Technology &amp; Patents</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Line Summary Section -->
+    <section class="section products-section bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 lang="zh" class="section-title">智慧光儲 <span class="gradient-text">兩大產品核心</span></h2>
+                <h2 lang="en" class="section-title">Two Core <span class="gradient-text">Product Ranges</span></h2>
+                <p lang="zh" class="section-subtitle">專為商務屋頂、溫室大棚及都市BIPV研發的柔性太陽能，配合次世代安全儲能系統。</p>
+                <p lang="en" class="section-subtitle">Pioneering lightweight flexible solar integration and high-safety lithium battery storage systems.</p>
+            </div>
+
+            <div class="products-grid" style="grid-template-columns: 1fr 1fr; max-width: 900px; margin: 0 auto;">
+                <div class="product-card">
+                    <div class="product-badge bg-primary">Solar Modules</div>
+                    <div class="product-image-placeholder" style="background:#0f172a; display:flex; align-items:center; justify-content:center;">
+                        <img src="images/500w_module.png" alt="CRi Flexible Solar" style="height:85%; width:auto;">
+                    </div>
+                    <div class="product-info">
+                        <h3>輕質柔性單晶太陽能</h3>
+                        <p lang="zh" class="product-desc">厚度僅 2.7mm、效率高達 23.5%。無鋁框、無玻璃，可直接以結構膠貼合於老舊屋頂、曲面溫室及大樓立面，徹底排除滲水隱憂與限重困境。</p>
+                        <p lang="en" class="product-desc">Flexible, thin monocrystalline panels. Glued flat without brackets, preventing structural damage and leakage on factories or BIPV facades.</p>
+                        <a href="products-solar.html" class="btn btn-outline btn-block mt-2">
+                            <span lang="zh">光電產品規格</span>
+                            <span lang="en">Solar Specifications</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-badge bg-accent">ESS Storage</div>
+                    <div class="product-image-placeholder ess-placeholder">
+                        <div class="ess-illus cabinet-illus"></div>
+                    </div>
+                    <div class="product-info">
+                        <h3>CRi-ESS 智慧儲能系統</h3>
+                        <p lang="zh" class="product-desc">引進 12,000 次超長壽命、零衰減專利電芯。提供 344kWh 工商業液冷儲能櫃與 MWh 集裝箱貨櫃，全方位支援高耗能企業調峰與峰谷差套利。</p>
+                        <p lang="en" class="product-desc">12,000-cycle high safety ESS platforms. Supports peak shaving and peak-valley arbitrage for industrial and utility sectors.</p>
+                        <a href="products-storage.html" class="btn btn-outline btn-block mt-2">
+                            <span lang="zh">儲能系統規格</span>
+                            <span lang="en">ESS Specifications</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Summary Section -->
+    <section class="section scenarios-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 lang="zh" class="section-title">光儲一體化 <span class="gradient-text">電網級實績</span></h2>
+                <h2 lang="en" class="section-title">Grid-Scale <span class="gradient-text">Track Record</span></h2>
+                <p lang="zh" class="section-subtitle">累積橫跨歐亞美地區的大型併網與儲能調度實績，以高融資性與卓越界面管理贏得信任。</p>
+                <p lang="en" class="section-subtitle">A global portfolio of utility-scale storage integration and grid-smoothing installations.</p>
+            </div>
+
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <div style="width:100%; height:220px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-tower-cell" style="font-size:4.5rem; color:var(--primary);"></i>
+                    </div>
+                    <div class="scenario-body">
+                        <h3 lang="zh">鋼鐵廠 Madou 儲能中心 (e-dReg)</h3>
+                        <h3 lang="en">Madou BESS Hub (80MW / 305MWh)</h3>
+                        <p lang="zh">大型鋼鐵廠電網級 e-dReg 輔助服務與電力交易中心。整合高壓變壓與 PCS，保障高載用電廠區電網調頻與備份電力。</p>
+                        <p lang="en">Utility-scale e-dReg ancillary services and power trading hub, smoothing steel manufacturing loads.</p>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <div style="width:100%; height:220px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-warehouse" style="font-size:4.5rem; color:var(--primary);"></i>
+                    </div>
+                    <div class="scenario-body">
+                        <h3 lang="zh">宜蘭科技園區儲能案場</h3>
+                        <h3 lang="en">Yilan BESS Port (50MW / 125MWh)</h3>
+                        <p lang="zh">配置 29 套電網級儲能模組進行併網輔助服務，冷卻簇間溫差控制小於 3℃，協助產業園區進行高效電力管理。</p>
+                        <p lang="en">Deploys 29 modular BESS compartments for grid regulation and automated thermal protection.</p>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <div style="width:100%; height:220px; background:var(--light-bg); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border);">
+                        <i class="fa-solid fa-solar-panel" style="font-size:4.5rem; color:var(--primary);"></i>
+                    </div>
+                    <div class="scenario-body">
+                        <h3 lang="zh">台電彰濱光儲併網調度專案</h3>
+                        <h3 lang="en">Changbin Solar-BESS (12MW / 45.31MWh)</h3>
+                        <p lang="zh">光伏併網平滑調度專案。採用輕質高彈性組件配合集裝箱式 LFP 儲能系統，有效改善光電發電間歇性問題。</p>
+                        <p lang="en">Integrates solar arrays with battery grids to smooth generation spikes and fulfill grid quotas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-2">
+                <a href="cases.html" class="btn btn-outline">
+                    <span lang="zh">瀏覽更多實際案例與細節</span>
+                    <span lang="en">View More Case Studies</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Partnerships Section -->
+    <section class="section partnerships-section bg-light" id="partnerships">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 lang="zh" class="section-title">國際戰略夥伴 <span class="gradient-text">Power UK</span></h2>
+                <h2 lang="en" class="section-title">Strategic Partner <span class="gradient-text">Power UK</span></h2>
+                <p lang="zh" class="section-subtitle">CRi Energy 與英國能源基建專家 Power UK (poweruk.uk) 結為策略聯盟，作為其核心技術與光儲設備製造供應商，共同加速英國與歐洲的低碳電網轉型。</p>
+                <p lang="en" class="section-subtitle">CRi Energy has partnered with UK infrastructure specialist Power UK to supply battery storage, grid transformers, and flexible solar modules across the UK and Europe.</p>
+            </div>
+
+                        <div class="features-grid" style="margin-top: 48px;">
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--accent);"><i class="fa-solid fa-handshake"></i></div>
+                    <h3 lang="zh">項目協同開發</h3>
+                    <h3 lang="en">Joint Development</h3>
+                    <p lang="zh">配合 Power UK 在英格蘭東部推進的 250 MW+ 大型電網側儲能（BESS）項目，進行設備整合、併網與系統調試。</p>
+                    <p lang="en">Collaborating on Power UK's 250 MW+ utility-scale BESS pipeline in the East of England, delivering end-to-end integration and grid commissioning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--accent);"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <h3 lang="zh">一體化設備供應</h3>
+                    <h3 lang="en">Equipment Sourcing</h3>
+                    <p lang="zh">供應華城電機 KEMA 認證之電網級升壓變壓器、LFP 液冷儲能櫃、以及 CRi 專利輕質柔性太陽能板，實現門到門（DDP）物流與售後保固。</p>
+                    <p lang="en">Sourcing KEMA-certified grid transformers, advanced liquid-cooled BESS containers, and CRi patented flexible modules with DDP logistics and UK-backed warranties.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon" style="color: var(--accent);"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 lang="zh">電網合規與治理</h3>
+                    <h3 lang="en">Grid Stewardship</h3>
+                    <p lang="zh">共同確保儲能與光電資產符合英國 G99 併網規範、UL 9540A 熱失控抑爆與 Approved Document B 消防法規，提升項目的銀行可貸性。</p>
+                    <p lang="en">Ensuring assets comply with UK G99 grid connection standards, UL 9540A fire safety regulations, and lender due diligence requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="images/logo.png" alt="CRi Logo" width="32" height="32" style="border-radius:50%; object-fit:cover;">
+                    <span class="brand-cri">CRi 嘉睿能源</span>
+                </div>
+                <p lang="zh" class="footer-desc">致力開創可服務人類的乾淨、可再生、智能光儲能源。專注於次世代輕質柔性單晶太陽能與高安全液冷儲能系統研發量產，台灣在地封裝與整合製造，企業淨零碳排的最佳永續夥伴。</p>
+                <p lang="en" class="footer-desc">Committed to developing clean, renewable, and intelligent solar & storage systems that serve humanity. Offering Taiwan-made flexible modules and advanced LFP storage cabinets.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4 lang="zh">快速連結</h4>
+                <h4 lang="en">Quick Links</h4>
+                <ul>
+                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
+                    <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
+                    <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
+                    <li><a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
+                    <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
+                    <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
+                    <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4 lang="zh">聯繫資訊</h4>
+                <h4 lang="en">Contact Info</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> <span lang="zh">地址：台中市大里區科技路168號5樓之一</span><span lang="en">Address: 5F.-1, No. 168, Keji Rd., Dali Dist., Taichung City, Taiwan</span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span lang="zh">電話：04-2491-9698</span><span lang="en">Phone: +886-4-2491-9698</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> seven@crienergytw.com</li>
+                    <li><i class="fa-solid fa-certificate"></i> <span lang="zh">TUV SUD 認證柔性板 | CNAS 認證儲能電芯</span><span lang="en">TUV SUD Certified Solar | CNAS Certified Cells</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p>&copy; 2026 CRi 嘉睿能源股份有限公司. All Rights Reserved. <span lang="zh">台灣在地整合製造</span><span lang="en">Integrated in Taiwan</span></p>
+                <p>
+                    <a href="#"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
+                    <a href="#"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
