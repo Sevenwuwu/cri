@@ -1,4 +1,4 @@
-/* Core Variables & Reset - Power UK Dark Inspired Theme */
+/* Core Variables & Reset - CRi Dark Tech-Sustainable Theme */
 :root {
     --primary: #10b981; /* Emerald Green (Sustainability) */
     --primary-light: #34d399;
@@ -139,7 +139,7 @@ body.lang-en [lang="zh"] {
 .btn-outline {
     background-color: transparent;
     border-color: var(--primary);
-    color: var(--primary);
+    color: var(--dark);
 }
 
 .btn-outline:hover {
@@ -435,12 +435,13 @@ body.lang-en [lang="zh"] {
 }
 
 .hero-buttons .btn-outline {
-    border-color: rgba(255,255,255,0.3);
-    color: var(--light);
+    border-color: rgba(255,255,255,0.4);
+    color: var(--dark);
 }
 
 .hero-buttons .btn-outline:hover {
-    background-color: var(--light);
+    background-color: rgba(255,255,255,0.1);
+    border-color: var(--dark);
     color: var(--dark);
 }
 
@@ -2029,5 +2030,196 @@ textarea.form-control {
     }
     100% {
         transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* Partnerships Grid (Strict 3 Columns on Widescreen) */
+.partnerships-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 1024px) {
+    .partnerships-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .partnerships-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Storage Safety Section Grid (Strict 2x2 Columns on Widescreen) */
+.storage-safety-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 900px;
+    margin: 48px auto 0 auto;
+}
+
+@media (max-width: 768px) {
+    .storage-safety-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Single Column Highlight Box Modifier */
+.repower-single-col {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+}
+
+.repower-single-col .repower-diagram {
+    max-width: 750px;
+    margin: 20px auto 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.repower-single-col .repower-diagram img {
+    max-height: 380px;
+    width: auto;
+    display: inline-block;
+}
+
+/* Interactive WSM Diagram Hover Styles */
+.interactive-wsm-diagram:hover .wsm-hover-overlay {
+    bottom: 0 !important;
+}
+
+.interactive-wsm-diagram:hover .wsm-img-wrapper .wsm-main-img {
+    transform: scale(1.15);
+}
+
+/* Full-Width Carousel Layout Alignment */
+@media (min-width: 1200px) {
+    .carousel-content {
+        padding-left: calc((100vw - 1160px) / 2 + 48px) !important;
+        padding-right: 48px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .carousel-content {
+        padding-left: calc((100vw - 1400px) / 2 + 48px) !important;
+        padding-right: 60px !important;
+    }
+}
+
+/* Partner Multi-Card Slider styling */
+.partner-slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+    padding: 0 50px;
+}
+.partner-slider-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+.partner-slider-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.partner-slide-card {
+    flex: 0 0 calc((100% - 60px) / 3);
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.partner-slide-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+.partner-card-img-wrapper {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    background: #0f172a;
+    position: relative;
+}
+.partner-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: transform 0.3s ease;
+}
+.partner-slide-card:hover .partner-card-img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+.partner-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.partner-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.partner-card-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+.partner-card-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin: 0;
+}
+.partner-card-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin: 0;
+}
+.partner-prev-btn, .partner-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid var(--border);
+    color: var(--dark);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+}
+.partner-prev-btn:hover, .partner-next-btn:hover {
+    background: var(--accent);
+    color: var(--dark);
+    border-color: var(--accent);
+}
+.partner-prev-btn { left: 0; }
+.partner-next-btn { right: 0; }
+
+@media (max-width: 1024px) {
+    .partner-slide-card {
+        flex: 0 0 calc((100% - 30px) / 2);
+    }
+}
+@media (max-width: 768px) {
+    .partner-slide-card {
+        flex: 0 0 100%;
+    }
+    .partner-slider-container {
+        padding: 0 40px;
     }
 }

@@ -278,71 +278,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Partner Carousel Slider Logic (for partnerships.html)
-    const slides = document.querySelector('.carousel-slides');
-    const slideItems = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const nextBtn = document.querySelector('.carousel-next');
-    const dotsContainer = document.querySelector('.carousel-dots');
-
-    if (slides && slideItems.length > 0) {
+    // 7. Partner Multi-Card Slider Logic (for partnerships.html)
+    const track = document.querySelector('.partner-slider-track');
+    const nextBtn = document.querySelector('.partner-next-btn');
+    const prevBtn = document.querySelector('.partner-prev-btn');
+    const cards = document.querySelectorAll('.partner-slide-card');
+    
+    if (track && cards.length > 0 && nextBtn && prevBtn) {
         let currentIndex = 0;
-        const totalSlides = slideItems.length;
-
-        // Clear existing dots just in case
-        if (dotsContainer) dotsContainer.innerHTML = '';
-
-        // Create dots
-        slideItems.forEach((_, idx) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (idx === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(idx));
-            if (dotsContainer) dotsContainer.appendChild(dot);
+        
+        function getVisibleCards() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 768) return 1;
+            if (screenWidth <= 1024) return 2;
+            return 3;
+        }
+        
+        function updateSlider() {
+            const cardEl = cards[0];
+            if (!cardEl) return;
+            const cardWidth = cardEl.getBoundingClientRect().width;
+            const gap = 30; // Gap width in pixels
+            const offset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(-${offset}px)`;
+            
+            const visibleCards = getVisibleCards();
+            const maxIndex = cards.length - visibleCards;
+            
+            // Enable/Disable buttons based on index
+            prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+            nextBtn.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            const visibleCards = getVisibleCards();
+            const maxIndex = cards.length - visibleCards;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+            }
         });
-
-        const dots = document.querySelectorAll('.carousel-dot');
-
-        function updateCarousel() {
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((dot, idx) => {
-                if (idx === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+        
+        // Handle resize responsiveness dynamically
+        window.addEventListener('resize', () => {
+            const visibleCards = getVisibleCards();
+            
+            // Recalculate flex-basis for cards dynamically
+            cards.forEach(card => {
+                const widthCalc = `calc((100% - ${(visibleCards - 1) * 30}px) / ${visibleCards})`;
+                card.style.flex = `0 0 ${widthCalc}`;
             });
-        }
-
-        function goToSlide(idx) {
-            currentIndex = idx;
-            updateCarousel();
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-        // Auto play every 5 seconds
-        let autoPlayTimer = setInterval(nextSlide, 5000);
-
-        // Reset timer on user interaction
-        const resetTimer = () => {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(nextSlide, 5000);
-        };
-
-        if (nextBtn) nextBtn.addEventListener('click', resetTimer);
-        if (prevBtn) prevBtn.addEventListener('click', resetTimer);
-        dots.forEach(dot => dot.addEventListener('click', resetTimer));
+            
+            const maxIndex = cards.length - visibleCards;
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            }
+            updateSlider();
+        });
+        
+        // Trigger initial resize call
+        setTimeout(updateSlider, 100);
+        window.addEventListener('load', updateSlider);
+        // Force an initial resize trigger
+        window.dispatchEvent(new Event('resize'));
     }
 });
