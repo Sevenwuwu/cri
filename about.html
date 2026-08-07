@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body class="lang-zh">
     <!-- Navigation Header -->
@@ -38,7 +39,6 @@
                 <a href="about.html" class="active"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
                 <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
                 <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
-                <a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
                 <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
                 <a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
                 <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
@@ -71,7 +71,6 @@
             <a href="about.html" class="drawer-link active"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
             <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
             <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
-            <a href="cases.html" class="drawer-link"><span lang="zh">實績案場</span><span lang="en">Cases</span></a>
             <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
             <a href="calculator.html" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
             <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
@@ -126,44 +125,111 @@
     </section>
 
     <!-- 3i Vision & Production Capacity Section -->
-    <section class="section bg-dark" style="padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-        <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <!-- 3i Vision & Production Capacity Section -->
+    <section class="section" style="padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background-color: #050a14;">
+        <div class="container">
             <div class="section-header text-center" style="margin-bottom: 40px;">
-                <h2 lang="zh" class="section-title" style="color: var(--dark);">CRi <span class="gradient-text">3i 核心技術願景</span></h2>
-                <h2 lang="en" class="section-title" style="color: var(--dark);">CRi <span class="gradient-text">3i Core Tech Vision</span></h2>
+                <h2 lang="zh" class="section-title">CRi <span class="gradient-text">3i 核心技術願景</span></h2>
+                <h2 lang="en" class="section-title">CRi <span class="gradient-text">3i Core Tech Vision</span></h2>
                 <p lang="zh" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">以創新 (Innovation)、智慧 (Intelligence)、整合 (Integration) 引領次世代綠能革命。</p>
                 <p lang="en" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">Driving the next solar era through innovation, intelligence, and integrated energy platforms.</p>
             </div>
 
-            <div class="features-grid" style="grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                        <div class="features-grid" style="grid-template-columns: repeat(2, 1fr); gap: 30px;">
                 <!-- 3i Vision Card -->
-                <div class="feature-card" style="background: var(--light); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius-md);">
-                    <div class="card-icon" style="color: var(--primary);"><i class="fa-solid fa-lightbulb"></i></div>
-                    <h3 lang="zh" style="font-weight: 800; color: var(--dark);">3i 技術研發願景</h3>
-                    <h3 lang="en" style="font-weight: 800; color: var(--dark);">3i Tech Vision</h3>
-                    <p lang="zh" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
-                        <strong>鈣鈦礦/矽疊層太陽能電池 (Perovskite-Silicon Tandem R&D)</strong><br>
-                        融合高效能矽晶與次世代鈣鈦礦材料，優化電極傳輸與 ITO 阻絕層設計。目標將電池片之光電轉換效率由 <strong>23.5% 跨越至 30%+</strong> 的極致效率。
-                    </p>
-                    <p lang="en" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
-                        <strong>Perovskite-Silicon Tandem Wafer R&D</strong><br>
-                        Optimizing charge transport layers and ITO interfaces to break physical limits, pushing cell conversion efficiency from 23.5% to over 30%.
-                    </p>
+                <div class="feature-card" style="background: var(--light); border: 1px solid var(--border); padding: 40px 30px; border-radius: var(--radius-md); transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px;">
+                            <span style="font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-light), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">30%+</span>
+                            <div class="card-icon card-icon-accent" style="margin: 0; width: 45px; height: 45px; font-size: 1.2rem;"><i class="fa-solid fa-lightbulb"></i></div>
+                        </div>
+                        <h3 lang="zh" style="font-weight: 800; color: var(--dark); font-size: 1.3rem; margin-bottom: 16px; text-align: center;">3i 技術研發願景</h3>
+                        <h3 lang="en" style="font-weight: 800; color: var(--dark); font-size: 1.3rem; margin-bottom: 16px; text-align: center;">3i Tech Vision</h3>
+                        <p lang="zh" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                            <strong>鈣鈦礦/矽疊層太陽能電池 (Perovskite-Silicon Tandem R&D)</strong><br>
+                            融合高效能矽晶與次世代鈣鈦礦材料，優化電極傳輸。目標將光電轉換效率由 <strong>23.5% 跨越至 30%+</strong>。
+                        </p>
+                        <p lang="en" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                            Optimizing charge transport to push cell conversion efficiency from 23.5% to over 30%.
+                        </p>
+                    </div>
+
+                    <!-- Visual Efficiency Leap Bar -->
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); margin-top: auto;">
+                        <span lang="zh" style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light); display: block; margin-bottom: 12px; text-align: center;"><i class="fa-solid fa-chart-line"></i> 光電轉換效率跨越對比</span>
+                        <span lang="en" style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light); display: block; margin-bottom: 12px; text-align: center;"><i class="fa-solid fa-chart-line"></i> Efficiency Leap Comparison</span>
+                        
+                        <div style="position: relative; height: 8px; background: #1e293b; border-radius: 4px; margin: 45px 0 35px 0;">
+                            <!-- Progress fill -->
+                            <div style="position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: linear-gradient(90deg, #64748b 0%, #2563eb 66%, #10b981 100%); border-radius: 4px; box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);"></div>
+                            
+                            <!-- Marker 1: Standard PV -->
+                            <div style="position: absolute; left: 55%; top: 8px; display: flex; flex-direction: column; align-items: center; transform: translateX(-50%);">
+                                <div style="width: 2px; height: 10px; background: #64748b;"></div>
+                                <span style="font-size: 0.75rem; color: #64748b; margin-top: 6px; font-weight: 600; white-space: nowrap;">傳統組件: 20%</span>
+                            </div>
+                            
+                            <!-- Marker 2: CRi Current -->
+                            <div style="position: absolute; left: 70%; top: -34px; display: flex; flex-direction: column; align-items: center; transform: translateX(-50%);">
+                                <span style="font-size: 0.75rem; color: var(--accent-light); margin-bottom: 6px; font-weight: 700; white-space: nowrap;">CRi 柔性: 23.5%</span>
+                                <div style="width: 2px; height: 10px; background: #2563eb; box-shadow: 0 0 8px #2563eb;"></div>
+                            </div>
+                            
+                            <!-- Marker 3: Tandem Target -->
+                            <div style="position: absolute; left: 95%; top: 8px; display: flex; flex-direction: column; align-items: center; transform: translateX(-90%);">
+                                <div style="width: 2px; height: 10px; background: #10b981;" class="pulse-green-active"></div>
+                                <span style="font-size: 0.75rem; color: var(--primary-light); margin-top: 6px; font-weight: 800; white-space: nowrap;">疊層目標: 30%+</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Production Capacity Card -->
-                <div class="feature-card" style="background: var(--light); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius-md);">
-                    <div class="card-icon" style="color: var(--primary);"><i class="fa-solid fa-industry"></i></div>
-                    <h3 lang="zh" style="font-weight: 800; color: var(--dark);">50 MW+ 國際量產產力</h3>
-                    <h3 lang="en" style="font-weight: 800; color: var(--dark);">50 MW+ Manufacturing</h3>
-                    <p lang="zh" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
-                        <strong>全球商業化交付 (Global Scale Delivery)</strong><br>
-                        年產能已達 <strong>50 MW+</strong> 以上，具備彈性擴充的模組化量產架構，全力支持亞洲、歐洲與北美等大型跨國綠能開發與案場專案交付。
-                    </p>
-                    <p lang="en" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6;">
-                        <strong>Flexible Global Deployment Capacity</strong><br>
-                        Over 50 MW+ annual production capacity, built on a modular scalable manufacturing architecture that fully supports project deliveries in Asia, Europe, and North America.
-                    </p>
+                <div class="feature-card" style="background: var(--light); border: 1px solid var(--border); padding: 40px 30px; border-radius: var(--radius-md); transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px;">
+                            <span style="font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, var(--primary-light), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">50 MW+</span>
+                            <div class="card-icon card-icon-accent" style="margin: 0; width: 45px; height: 45px; font-size: 1.2rem;"><i class="fa-solid fa-industry"></i></div>
+                        </div>
+                        <h3 lang="zh" style="font-weight: 800; color: var(--dark); font-size: 1.3rem; margin-bottom: 16px; text-align: center;">50 MW+ 國際量產產力</h3>
+                        <h3 lang="en" style="font-weight: 800; color: var(--dark); font-size: 1.3rem; margin-bottom: 16px; text-align: center;">50 MW+ Manufacturing</h3>
+                        <p lang="zh" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                            <strong>全球商業化交付 (Global Scale Delivery)</strong><br>
+                            年產能已達 <strong>50 MW+</strong> 以上，具備彈性擴充的模組化量產架構，全力支持全球綠能開發與專案交付。
+                        </p>
+                        <p lang="en" style="color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+                            Annual capacity exceeds 50 MW+ with modular expandable lines supporting global utility deployments.
+                        </p>
+                    </div>
+
+                    <!-- Visual Capacity Steps -->
+                    <div style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.05); margin-top: auto;">
+                        <span lang="zh" style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light); display: block; margin-bottom: 12px; text-align: center;"><i class="fa-solid fa-cubes"></i> 產能模組化階梯擴展</span>
+                        <span lang="en" style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light); display: block; margin-bottom: 12px; text-align: center;"><i class="fa-solid fa-cubes"></i> Production Capacity Roadmap</span>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; position: relative; margin-top: 15px;">
+                            <!-- Connection Line -->
+                            <div style="position: absolute; left: 10%; right: 10%; top: 12px; height: 2px; background: linear-gradient(90deg, #10b981 50%, #2563eb 100%); z-index: 1;"></div>
+                            
+                            <!-- Step 1 -->
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 2; width: 33%;">
+                                <div style="width: 26px; height: 26px; border-radius: 50%; background: #10b981; border: 3px solid #050a14; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff;"><i class="fa-solid fa-check"></i></div>
+                                <span style="font-size: 0.75rem; color: #94a3b8; margin-top: 6px; font-weight: 700;">第一階段: 15 MW</span>
+                            </div>
+                            
+                            <!-- Step 2 -->
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 2; width: 33%;">
+                                <div style="width: 26px; height: 26px; border-radius: 50%; background: #10b981; border: 3px solid #050a14; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff;"><i class="fa-solid fa-check"></i></div>
+                                <span style="font-size: 0.75rem; color: #94a3b8; margin-top: 6px; font-weight: 700;">第二階段: 30 MW</span>
+                            </div>
+                            
+                            <!-- Step 3 -->
+                            <div style="display: flex; flex-direction: column; align-items: center; z-index: 2; width: 33%;">
+                                <div style="width: 26px; height: 26px; border-radius: 50%; background: #2563eb; border: 3px solid #050a14; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff;" class="pulse-blue-active"></div>
+                                <span style="font-size: 0.75rem; color: var(--accent-light); margin-top: 6px; font-weight: 800;">現階段: 50 MW+</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,7 +246,7 @@
             
             <div class="features-grid" style="max-width: 900px; margin: 0 auto 60px auto;">
                 <div class="feature-card" style="background:var(--light); border:1px solid var(--border);">
-                    <div class="card-icon" style="color:var(--accent);"><i class="fa-solid fa-file-signature"></i></div>
+                    <div class="card-icon card-icon-accent"><i class="fa-solid fa-file-signature"></i></div>
                     <h3 lang="zh">
                         <a href="https://patents.google.com/patent/TWI746034B/zh" target="_blank" style="color: var(--primary-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                             發明專利第 I746034 號 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.85rem;"></i>
@@ -195,7 +261,7 @@
                     <p lang="en"><strong>Patent Name:</strong> Solar cell unit, fabrication method, and module encapsulation. Defines stress-free polymer encapsulation layout, ensuring zero cell micro-cracks under large bending curvature (radius 0.5m).</p>
                 </div>
                 <div class="feature-card" style="background:var(--light); border:1px solid var(--border);">
-                    <div class="card-icon" style="color:var(--accent);"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="card-icon card-icon-accent"><i class="fa-solid fa-shield-halved"></i></div>
                     <h3 lang="zh">
                         <a href="https://patents.google.com/patent/TWI850761B/zh" target="_blank" style="color: var(--primary-light); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                             發明專利第 I850761 號 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.85rem;"></i>
@@ -294,23 +360,23 @@
             <div class="section-header text-center" style="margin-bottom: 40px;">
                 <h2 lang="zh" style="font-weight: 800; font-size: 2.2rem; color: var(--primary);">全球戰略合作夥伴</h2>
                 <h2 lang="en" style="font-weight: 800; font-size: 2.2rem; color: var(--primary);">Global Strategic Alliances</h2>
-                <p lang="zh" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">透過國際領先企業的深度合作，我們為全球市場提供高安全、高融資性的智慧光儲解決方案。</p>
-                <p lang="en" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">Accelerating international expansion and delivery compliance through tier-one global energy partnerships.</p>
+                <p lang="zh" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">透過與國際領先企業的深度合作，我們為市場提供最安全、最可靠的智慧光儲解決方案。</p>
+                <p lang="en" style="color: var(--gray); font-size: 1rem; margin-top: 8px;">Delivering highly secure and reliable smart solar and storage solutions through strategic global alliances.</p>
             </div>
             
             <div class="repower-highlight-box" style="background:var(--light); color: var(--dark); border: 1px solid var(--border); grid-template-columns: 1fr; padding: 40px;">
     <div style="text-align: center; margin-bottom: 24px;">
-        <i class="fa-solid fa-earth-europe" style="font-size: 4rem; color: var(--accent);"></i>
-        <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 16px;">國際電網合規交付</h3>
-        <p style="color: var(--accent); font-weight: 700;" lang="zh">符合英國與歐盟最嚴苛併網合規認證</p>
-        <p style="color: var(--accent); font-weight: 700;" lang="en">Certified for UK & European Grid Connection Standards</p>
+        <i class="fa-solid fa-handshake" style="font-size: 4rem; color: var(--accent);"></i>
+        <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-top: 16px;">高品質光儲資產整合</h3>
+        <p style="color: var(--accent); font-weight: 700;" lang="zh">整合台達電一體化系統與在地原廠保固</p>
+        <p style="color: var(--accent); font-weight: 700;" lang="en">Integrating Delta ESS Platforms & Local Support</p>
     </div>
     <div>
         <p lang="zh" style="font-size: 1.05rem; line-height: 1.7; color: var(--dark);">
-            CRi Energy 專注於開發符合國際最高標準的綠能資產。我們的系統設計已通過多項英法歐盟電網標準，能為客戶提供符合 <strong>英國 G99/G100 併網合規</strong> 的 e-LiFe 儲能貨櫃。系統整合了合作夥伴台達電（Delta）的 PCS 控制系統、華城電機（Fortune Electric）具備 KEMA 認證的升壓變壓器，並通過 <strong>Munich Re 再保險融資級技術審查</strong>，為英歐容量市場提供解決方案。
+            CRi Energy 專注於開發符合國際與國內安全標準的綠能資產。透過與合作夥伴台達電（Delta）、華城電機（Fortune Electric）、達拉電能（Dara Power）及宏泰電工（Hong Tai）的深度整合，我們能為客戶提供最安全、最合規的儲能櫃與變壓系統，並提供在地原廠的 24/7 售後與運維服務，確保專案長期高收益與融資級資產保障。
         </p>
         <p lang="en" style="font-size: 1.05rem; line-height: 1.7; color: var(--dark); margin-top: 12px;">
-            CRi Energy is dedicated to engineering renewable energy assets that meet the most rigorous international standards. Our systems are fully certified for European and UK grids, providing <strong>UK G99/G100 grid connection compliance</strong>. By integrating Delta's advanced PCS systems and Fortune Electric's KEMA-certified transformers, our utility-scale systems are fully <strong>backed by Munich Re bankability reviews</strong> and ready for deployment in the UK Capacity Market and ancillary services.
+            CRi Energy is dedicated to engineering premium renewable energy assets. By collaborating with tier-1 partners like Delta Electronics, Fortune Electric, Dara Power, and Hong Tai Electric, we deliver highly integrated solar and storage solutions backed by 24/7 technical support, ensuring long-term bankability and operational excellence.
         </p>
     </div>
 </div>
@@ -341,7 +407,7 @@
                     <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
                     <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
                     <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
-                    <li><a href="cases.html"><span lang="zh">實績案場</span><span lang="en">Cases</span></a></li>
+                    <li></li>
                     <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
                     <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
                     <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>

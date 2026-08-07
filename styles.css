@@ -2226,3 +2226,53 @@ textarea.form-control {
         padding: 0 40px;
     }
 }
+
+/* Accent card icon styles for high contrast tech sections */
+.card-icon-accent {
+    background-color: var(--accent-glow) !important;
+    color: var(--accent-light) !important;
+}
+
+.feature-card:hover .card-icon-accent {
+    background-color: var(--accent-light) !important;
+    color: var(--light) !important;
+}
+
+/* Pulse keyframes for visual dashboard widgets */
+@keyframes pulse-green-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes pulse-blue-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+.pulse-green-active {
+    animation: pulse-green-glow 2s infinite !important;
+}
+
+.pulse-blue-active {
+    animation: pulse-blue-glow 2s infinite !important;
+}
