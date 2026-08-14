@@ -1329,6 +1329,12 @@ tr:first-child th.highlight-column {
     font-size: 1rem;
     outline: none;
     transition: var(--transition);
+    color: var(--dark);
+}
+
+.form-control option {
+    background-color: var(--light-bg);
+    color: var(--dark);
 }
 
 .form-control:focus {

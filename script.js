@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateROI(); // Initial calc
     }
 
-    // 5. B2B Form Submission & Modal Handling
+    // 5. B2B Form Submission & Web3Forms Real Email Sending (with Local Preview Fallback)
     if (evaluationForm) {
         evaluationForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -222,14 +222,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...' 
                 : '<i class="fa-solid fa-spinner fa-spin"></i> 正在送出評估申請...';
 
-            setTimeout(() => {
+            // Web3Forms Access Key configuration
+            // Note to Developer/User: Enter your free Access Key here from https://web3forms.com/ to send emails to seven@crienergytw.com
+            const accessKey = "c1c5957c-98ef-4b25-98c8-a9dab75d62c1"; 
+
+            // Extract form inputs
+            const companyName = document.getElementById('companyName')?.value || '';
+            const contactPerson = document.getElementById('contactPerson')?.value || '';
+            const contactPhone = document.getElementById('contactPhone')?.value || '';
+            const contactEmail = document.getElementById('contactEmail')?.value || '';
+            const formRoofArea = document.getElementById('formRoofArea')?.value || '';
+            const projectType = document.getElementById('projectType')?.value || '';
+            const formMessage = document.getElementById('formMessage')?.value || '';
+
+            // Local Preview Fallback if Access Key is not set yet
+            if (accessKey === "YOUR_ACCESS_KEY_HERE" || accessKey === "") {
+                console.warn("Web3Forms Access Key is not configured. Falling back to local mock submission.");
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = origContent;
+                    if (successModal) successModal.classList.add('open');
+                    evaluationForm.reset();
+                    if (typeof calculateROI === 'function') calculateROI(); 
+                }, 1200);
+                return;
+            }
+
+            // Construct email message body
+            const emailSubject = `CRi 嘉睿能源網站 - 線上光儲建置評估申請 [${companyName}]`;
+            const emailBody = `
+=== CRi 嘉睿能源 - 線上評估表單申請 ===
+公司名稱: ${companyName}
+聯絡人: ${contactPerson}
+聯絡電話: ${contactPhone}
+電子信箱: ${contactEmail}
+預估建置面積: ${formRoofArea} 坪
+需求類型: ${projectType}
+其他細部描述:
+${formMessage}
+            `.trim();
+
+            // Submit via Web3Forms API
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    subject: emailSubject,
+                    from_name: 'CRi Energy Website',
+                    name: contactPerson,
+                    email: contactEmail,
+                    phone: contactPhone,
+                    message: emailBody,
+                    company: companyName,
+                    roof_area: formRoofArea,
+                    project_type: projectType
+                })
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status === 200) {
+                    if (successModal) successModal.classList.add('open');
+                    evaluationForm.reset();
+                    if (typeof calculateROI === 'function') calculateROI();
+                } else {
+                    console.error("Web3Forms Error:", json);
+                    alert(isEn ? 'Submission failed: ' + json.message : '送出失敗，錯誤訊息：' + json.message);
+                }
+            })
+            .catch(error => {
+                console.error("Network Error:", error);
+                alert(isEn ? 'Network error occurred. Please try again later.' : '網路連接錯誤，請稍後再試。');
+            })
+            .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = origContent;
-                
-                if (successModal) successModal.classList.add('open');
-                evaluationForm.reset();
-                if (typeof calculateROI === 'function') calculateROI(); 
-            }, 1500);
+            });
         });
     }
 

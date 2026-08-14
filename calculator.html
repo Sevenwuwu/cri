@@ -9,8 +9,8 @@
     <meta property="og:title" content="智慧光儲 ROI 效益與配儲線上估算器 | CRi 嘉睿能源">
     <meta property="og:description" content="免費線上評估工具。輸入您的工廠或溫室屋頂面積，即時估算太陽能建置容量、儲能配置、年發電量、減碳效益與年省電費，為企業淨零決策提供精準數據。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://localhost:8000/calculator.html">
-    <meta property="og:image" content="http://localhost:8000/images/logo.png">
+    <meta property="og:url" content="https://www.crienergytw.com/calculator.html">
+    <meta property="og:image" content="https://www.crienergytw.com/images/logo.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calculator.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <!-- ChartJS for financial charting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SheetJS for exporting real Excel file -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <link rel="canonical" href="https://www.crienergytw.com/calculator.html">
 </head>
 <body class="lang-zh">
     <!-- Navigation Header -->
@@ -89,121 +95,577 @@
     </section>
 
     <!-- Calculator Section -->
-    <section class="section bg-light" style="padding-top: 40px;">
-        <div class="container" style="max-width: 1000px;">
-            <div class="calculator-wrapper">
-                <!-- Inputs Box -->
-                <div class="calculator-inputs">
-                    <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); margin-bottom: 24px;">
-                        <span style="color:var(--accent);">■</span> <span lang="zh">1. 輸入您的場域參數</span><span lang="en">1. Input Site Parameters</span>
-                    </h3>
-                    
-                    <div class="form-group">
-                        <label for="calcRoofType">
-                            <span lang="zh">場景類型 (對應不同發電增益)</span>
-                            <span lang="en">Scenario Type (Yield factors)</span>
-                        </label>
-                        <select id="calcRoofType" class="form-control">
-                            <option value="factory">老舊廠房浪板屋頂 (平面貼合)</option>
-                            <option value="greenhouse">設施農業大棚玻璃 (曲面貼合)</option>
-                            <option value="bipv">都市帷幕大樓立面 (BIPV立面)</option>
-                            <option value="repower">舊光電電站就地改裝 (2.0倍增益)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="roofArea" style="display:flex; justify-content:space-between; align-items:center;">
-                            <span><span lang="zh">可用面積大小</span><span lang="en">Available Space</span></span>
-                            <span class="slider-val-display"><span id="areaValDisplay">500</span> <span lang="zh">坪</span><span lang="en">Pings</span></span>
-                        </label>
-                        <input type="range" id="roofAreaSlider" min="10" max="10000" step="10" value="500" class="slider-input">
-                        <div style="display:flex; align-items:center; gap:12px; margin-top:12px;">
-                            <input type="number" id="roofArea" value="500" min="10" max="10000" class="form-control" style="width: 120px;">
-                            <span style="font-weight:700; color:var(--dark);" lang="zh">坪 (1 坪 ≈ 3.3 平方公尺)</span>
-                            <span style="font-weight:700; color:var(--dark);" lang="en">Pings (1 Ping ≈ 3.3 ㎡)</span>
+    <section class="section bg-light" style="padding-top: 40px; background-color: #050a14;">
+        <div style="width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 20px;">
+            <div class="bipv-calculator-app">
+                <!-- Sub Header inside calculator app area -->
+                <div class="calculator-sub-header" style="display: flex; justify-content: space-between; align-items: center; background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: 1.25rem 2rem;">
+                    <div class="logo-container" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div class="logo-text">
+                            <h1 style="font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em; color: #fff; margin: 0;">BIPV 發電牆效益試算與視覺化系統</h1>
+                            <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0.25rem 0 0 0;">BIPV Solar Wall Yield Calculator & Financial Dashboard</p>
                         </div>
                     </div>
-
-                    <div class="form-group checkbox-group" style="background:var(--light-bg); padding:16px; border-radius:var(--radius-sm); border: 1px solid var(--border);">
-                        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:700;">
-                            <input type="checkbox" id="addStorage" checked style="width:18px; height:18px; accent-color:var(--accent);">
-                            <span><span lang="zh">同步配建 CRi-ESS 智能儲能櫃 (建議)</span><span lang="en">Equip with CRi-ESS Battery (Recommended)</span></span>
-                        </label>
-                        <p style="font-size:0.85rem; color:var(--gray); margin-top:8px; margin-left:26px; line-height:1.4;">
-                            <span lang="zh">系統將自動匹配「太陽能建置容量 x 2.0倍 (kWh)」的儲能配置，進行每日峰谷電價避峰套利。</span>
-                            <span lang="en">System automatically matches a "Solar kW x 2.0 (kWh)" LFP cabinet size to perform peak-shifting daily arbitrage.</span>
-                        </p>
+                    <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+                        <div class="toggle-switch-container">
+                            <button id="preset-no-subsidy" class="toggle-btn active">自發自用案場</button>
+                            <button id="preset-with-subsidy" class="toggle-btn">併網型案場</button>
+                        </div>
+                        <button id="detailed-model-btn" class="table-btn active" style="background: var(--accent-gradient); border-color: transparent; color: #fff; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; cursor: pointer;">
+                            <i class="fa-solid fa-file-invoice-dollar"></i> 詳細預估模型
+                        </button>
+                        <button id="info-modal-btn" class="table-btn" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; cursor: pointer;">
+                            <i class="fa-solid fa-circle-info"></i> 計算說明
+                        </button>
                     </div>
                 </div>
 
-                <!-- Results Box -->
-                <div class="calculator-results">
-                    <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 24px;">
-                        <span style="color:var(--accent);">■</span> <span lang="zh">2. 預估效益分析</span><span lang="en">2. Estimated Benefits</span>
-                    </h3>
-                    
-                    <div class="results-list">
-                        <div class="result-item">
-                            <span class="result-label" lang="zh">預估光電 / 儲能量</span>
-                            <span class="result-label" lang="en">Est. Solar / Storage Size</span>
-                            <div class="result-val">
-                                <span id="resCapacity">--</span> <span style="font-size:0.9rem; color:var(--gray);">kWp</span>
-                                <span id="essLabelDivider" style="display:none; color:var(--border);"> / </span>
-                                <span id="resStorageCapacity" style="display:none; color:var(--accent);">--</span>
-                                <span id="essUnitText" style="display:none;" style="font-size:0.9rem; color:var(--gray);"> kWh</span>
-                            </div>
-                        </div>
+                <div class="app-container">
+                    <aside class="sidebar">
+            <div class="sidebar-title"><i class="fa-solid fa-sliders"></i> 效益參數控制面板</div>
+            
+            <!-- 0. Project Record Manager (Hidden as requested) -->
+            <div class="input-group-card" style="display: none !important;">
+                <h3><i class="fa-solid fa-folder-open"></i> 案場檔案管理</h3>
+                <div class="control-field">
+                    <label class="control-label" for="project-name-input">案場名稱</label>
+                    <input type="text" id="project-name-input" class="form-input-text" placeholder="例如: 中華台亞 BIPV 專案" style="width: 100%;">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <button type="button" id="save-project-btn" class="custom-btn" style="padding: 0.45rem;">
+                        <i class="fa-solid fa-floppy-disk"></i> 儲存案場
+                    </button>
+                    <button type="button" id="delete-project-btn" class="custom-btn" style="background: var(--danger-gradient); padding: 0.45rem;">
+                        <i class="fa-solid fa-trash-can"></i> 刪除紀錄
+                    </button>
+                </div>
+                <div class="control-field" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 0.5rem;">
+                    <label class="control-label" for="project-select">載入歷史案場</label>
+                    <select id="project-select">
+                        <option value="">-- 選擇已存案場 --</option>
+                    </select>
+                </div>
+            </div>
 
-                        <div class="result-item">
-                            <span class="result-label" lang="zh">預估年發電量</span>
-                            <span class="result-label" lang="en">Est. Annual Generation</span>
-                            <div class="result-val"><span id="resGeneration">--</span> <span style="font-size:0.9rem; color:var(--gray);">kWh / 度</span></div>
-                        </div>
-
-                        <div class="result-item">
-                            <span class="result-label" lang="zh">年排碳扣抵量</span>
-                            <span class="result-label" lang="en">Annual Carbon Savings</span>
-                            <div class="result-val"><span id="resCarbon">--</span> <span style="font-size:0.9rem; color:var(--gray);">Kg-CO2</span></div>
-                        </div>
-
-                        <div class="result-item highlight-item">
-                            <span class="result-label" lang="zh">光自用 + 儲能套利總年省</span>
-                            <span class="result-label" lang="en">Total Est. Annual Savings</span>
-                            <div class="result-val text-accent" id="resSavings">--</div>
-                        </div>
+            <!-- 1. Region and Sun Hours -->
+            <div class="input-group-card">
+                <h3><i class="fa-solid fa-map-location-dot"></i> 1. 地區與日照參數</h3>
+                <div class="control-field">
+                    <label class="control-label" for="city-select">設置縣市</label>
+                    <select id="city-select">
+                        <option value="keelung">基隆市 (2.2 hr/day)</option>
+                        <option value="taipei">台北市 (2.6 hr/day)</option>
+                        <option value="newtaipei">新北市 (2.7 hr/day)</option>
+                        <option value="taoyuan">桃園市 (3.0 hr/day)</option>
+                        <option value="hsinchu">新竹市 (3.5 hr/day)</option>
+                        <option value="miaoli">苗栗縣 (3.5 hr/day)</option>
+                        <option value="taichung">台中市 (3.6 hr/day)</option>
+                        <option value="changhua">彰化縣 (3.8 hr/day)</option>
+                        <option value="nantou">南投縣 (3.2 hr/day)</option>
+                        <option value="yunlin">雲林縣 (3.9 hr/day)</option>
+                        <option value="chiayi">嘉義市/縣 (4.0 hr/day)</option>
+                        <option value="tainan" selected>台南市 (4.18 hr/day)</option>
+                        <option value="kaohsiung">高雄市 (4.2 hr/day)</option>
+                        <option value="pingtung">屏東縣 (4.3 hr/day)</option>
+                        <option value="yilan">宜蘭縣 (2.5 hr/day)</option>
+                        <option value="hualien">花蓮縣 (3.0 hr/day)</option>
+                        <option value="taitung">台東縣 (3.4 hr/day)</option>
+                        <option value="penghu">澎湖縣 (4.5 hr/day)</option>
+                    </select>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="sun-hours">
+                        日照時數 <span>(小時/天)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="sun-hours" min="1.0" max="6.0" step="0.05" value="4.18">
+                        <input type="number" id="sun-hours-num" min="1.0" max="6.0" step="0.05" value="4.18">
                     </div>
+                </div>
+                
+                <!-- Custom Region Form (Hidden as requested) -->
+                <div class="custom-region-form" style="display: none !important;">
+                    <h4><i class="fa-solid fa-plus-circle"></i> 新增自訂地區</h4>
+                    <div class="form-inputs-row">
+                        <input type="text" id="custom-city-name" placeholder="輸入地區名稱 (如: 台南沙崙)">
+                        <input type="number" id="custom-city-hours" placeholder="日照" min="0" max="10" step="0.05">
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="custom-city-north">
+                        <label for="custom-city-north">此地區屬於北部加成地區 (+15%)</label>
+                    </div>
+                    <button type="button" id="add-city-btn" class="custom-btn">
+                        <i class="fa-solid fa-plus"></i> 新增並存入資料庫
+                    </button>
+                </div>
+            </div>
 
-                    <div style="margin-top:24px;">
-                        <a href="contact.html" class="btn btn-accent btn-block text-center" id="quoteCTABtn">
-                            <span lang="zh">索取正式光儲評估報價單</span>
-                            <span lang="en">Get A Formal Proposal</span>
-                        </a>
+            <!-- 2. System Size & Construction Cost -->
+            <div class="input-group-card">
+                <h3><i class="fa-solid fa-chart-pie"></i> 2. 系統規模與建置成本</h3>
+                <div class="control-field">
+                    <label class="control-label" for="capacity">
+                        系統容量 <span>(kWp)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="capacity" min="1.0" max="500.0" step="0.1" value="10.00">
+                        <input type="number" id="capacity-num" min="1.0" max="10000.0" step="0.1" value="10.00">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="unit-cost">
+                        單位建置成本 <span>(萬元/kW)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="unit-cost" min="1.5" max="8.0" step="0.05" value="4.50">
+                        <input type="number" id="unit-cost-num" min="0.5" max="20.0" step="0.05" value="4.50">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="other-cost">
+                        其他費用/線補 <span>(萬元)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="other-cost" min="0.0" max="50.0" step="0.5" value="0.0">
+                        <input type="number" id="other-cost-num" min="0.0" max="500.0" step="0.5" value="0.0">
                     </div>
                 </div>
             </div>
 
-            <!-- Regulation Box -->
-            <div class="repower-highlight-box mt-3" style="background:var(--light); color:var(--dark); border:1px solid var(--border); padding:32px;">
-                <div class="repower-content" style="flex: 1 1 100%;">
-                    <h3 lang="zh" style="font-weight:800; font-size:1.4rem; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-scale-balanced"></i> 台灣再生能源發展條例 - 屋頂光電規範 (2025/2026生效)</h3>
-                    <h3 lang="en" style="font-weight:800; font-size:1.4rem; color:var(--primary); margin-bottom:12px;"><i class="fa-solid fa-scale-balanced"></i> Taiwan Renewable Energy Act - Rooftop Solar mandates</h3>
-                    <p lang="zh" style="color:var(--gray); font-size:0.95rem; line-height:1.6; margin-bottom:12px;">
-                        根據最新三讀修正通過條文：<strong>新建、增建或改建之建築物，達一定規模（例如屋頂面積 300 坪以上者），起造人應設置一定比率之太陽光電發電設備。</strong>
-                    </p>
-                    <p lang="en" style="color:var(--gray); font-size:0.95rem; line-height:1.6; margin-bottom:12px;">
-                        According to recent amendments: <strong>New, extended, or reconstructed buildings exceeding specified sizes (e.g. roof spaces above 300 pings) must install rooftop solar arrays under legal mandates.</strong>
-                    </p>
-                    <p lang="zh" style="color:var(--gray); font-size:0.95rem; line-height:1.6;">
-                        <strong>CRi 柔性面板優勢：</strong> 許多老舊或新設計建築因耐震法規限制「無法承受傳統重型鋼架與玻璃面板」（每坪重量達60-80kg）。CRi 柔性板（每坪僅約9.2kg，為傳統的1/8）能完美通過建管處耐震承載審查，不需重新補強梁柱，並可浮貼免鑽孔防漏水，是法規合規與結構安全的唯一首選。
-                    </p>
-                    <p lang="en" style="color:var(--gray); font-size:0.95rem; line-height:1.6;">
-                        <strong>CRi's Light Advantage:</strong> Standard panels load 60-80kg per ping, failing earthquake loading code reviews on many roofs. CRi modules weigh just 9.2kg per ping (1/8 of traditional solar), passing loading permits easily without pillar reinforcements.
-                    </p>
+            <!-- 3. Subsidy -->
+            <div class="input-group-card">
+                <h3><i class="fa-solid fa-hand-holding-dollar"></i> 3. 專案補貼款</h3>
+                <div class="control-field">
+                    <label class="control-label" for="govt-subsidy">
+                        政府建置補助金 <span>(萬元)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="govt-subsidy" min="0.0" max="200.0" step="1.0" value="40.0">
+                        <input type="number" id="govt-subsidy-num" min="0.0" max="1000.0" step="1.0" value="40.0">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="extra-subsidy">
+                        地方加碼/額外補助 <span>(萬元)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="extra-subsidy" min="0.0" max="100.0" step="1.0" value="0.0">
+                        <input type="number" id="extra-subsidy-num" min="0.0" max="500.0" step="1.0" value="0.0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Financing Loan -->
+            <div class="input-group-card">
+                <div class="checkbox-row" style="justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 0.5rem; width: 100%;">
+                    <h3 style="border-bottom: none; padding-bottom: 0; display: inline-flex;"><i class="fa-solid fa-building-columns"></i> 4. 銀行融資貸款</h3>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                        <input type="checkbox" id="loan-enable-toggle" checked>
+                        <label for="loan-enable-toggle" style="cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--primary);">啟用融資</label>
+                    </div>
+                </div>
+                <div id="loan-controls-wrapper" class="loan-group-container">
+                    <div class="control-field">
+                        <label class="control-label" for="loan-pct">
+                            融資成數 <span>(%)</span>
+                        </label>
+                        <div class="control-row">
+                            <input type="range" id="loan-pct" min="0" max="90" step="5" value="0">
+                            <input type="number" id="loan-pct-num" min="0" max="100" step="1" value="0">
+                        </div>
+                    </div>
+                    <div class="control-field">
+                        <label class="control-label" for="loan-rate">
+                            貸款年利率 <span>(%)</span>
+                        </label>
+                        <div class="control-row">
+                            <input type="range" id="loan-rate" min="1.0" max="5.0" step="0.05" value="2.0">
+                            <input type="number" id="loan-rate-num" min="0.5" max="10.0" step="0.05" value="2.0">
+                        </div>
+                    </div>
+                    <div class="control-field">
+                        <label class="control-label" for="loan-years">
+                            貸款期限 <span>(年)</span>
+                        </label>
+                        <div class="control-row">
+                            <input type="range" id="loan-years" min="5" max="20" step="1" value="15">
+                            <input type="number" id="loan-years-num" min="1" max="25" step="1" value="15">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Tariff Rate & Operating Parameters -->
+            <div class="input-group-card">
+                <h3><i class="fa-solid fa-gears"></i> 5. 售電與營運參數</h3>
+                <div class="control-field">
+                    <label class="control-label" for="fit-rate">
+                        躉購費率 / 自用電費單價 <span>(元/度)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="fit-rate" min="3.0" max="8.0" step="0.05" value="5.0">
+                        <input type="number" id="fit-rate-num" min="1.0" max="15.0" step="0.05" value="5.0">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="gen-factor">
+                        立面折減/發電係數
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="gen-factor" min="0.5" max="1.0" step="0.01" value="0.95">
+                        <input type="number" id="gen-factor-num" min="0.1" max="1.2" step="0.01" value="0.95">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="dep-years">
+                        折舊攤提年限 <span>(年)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="dep-years" min="10" max="20" step="1" value="15">
+                        <input type="number" id="dep-years-num" min="5" max="25" step="1" value="15">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="meter-rent">
+                        固定電錶租金 <span>(萬元/年)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="meter-rent" min="0.0" max="5.0" step="0.05" value="0.10">
+                        <input type="number" id="meter-rent-num" min="0.0" max="10.0" step="0.05" value="0.10">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Operating Rates & Taxes -->
+            <div class="input-group-card">
+                <h3><i class="fa-solid fa-percent"></i> 6. 營運費率與稅率設定</h3>
+                <div class="control-field">
+                    <label class="control-label" for="om-rate-1-5">
+                        維護費率 1-5年 <span>(%)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="om-rate-1-5" min="0.0" max="15.0" step="0.1" value="6.0">
+                        <input type="number" id="om-rate-1-5-num" min="0.0" max="100.0" step="0.1" value="6.0">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="om-rate-6-20">
+                        維護費率 6-20年 <span>(%)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="om-rate-6-20" min="0.0" max="20.0" step="0.1" value="8.0">
+                        <input type="number" id="om-rate-6-20-num" min="0.0" max="100.0" step="0.1" value="8.0">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="management-rate">
+                        營運管理費率 <span>(%)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="management-rate" min="0.0" max="2.0" step="0.05" value="0.3">
+                        <input type="number" id="management-rate-num" min="0.0" max="10.0" step="0.05" value="0.3">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="insurance-rate">
+                        產險費率 <span>(%)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="insurance-rate" min="0.0" max="2.0" step="0.05" value="0.35">
+                        <input type="number" id="insurance-rate-num" min="0.0" max="10.0" step="0.05" value="0.35">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="recycling-rate">
+                        模組回收費率 <span>(元/kW)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="recycling-rate" min="0" max="3000" step="100" value="1000">
+                        <input type="number" id="recycling-rate-num" min="0" max="10000" step="50" value="1000">
+                    </div>
+                </div>
+                <div class="control-field">
+                    <label class="control-label" for="tax-rate">
+                        營運所得稅率 <span>(%)</span>
+                    </label>
+                    <div class="control-row">
+                        <input type="range" id="tax-rate" min="0" max="30" step="1" value="20">
+                        <input type="number" id="tax-rate-num" min="0" max="100" step="1" value="20">
+                    </div>
+                </div>
+            </div>
+        </aside>
+                    <main class="dashboard-content">
+            <!-- KPI Cards Grid -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-title">
+                        <span>建置總成本</span>
+                        <i class="fa-solid fa-scale-unbalanced-left"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-total-cost">0.00 萬元</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-calculator"></i> 容量 × 單位成本 + 其他</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-title">
+                        <span id="kpi-net-cost-title">實質自籌出資</span>
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-net-cost">0.00 萬元</div>
+                    <div class="kpi-footer" id="kpi-net-cost-footer"><i class="fa-solid fa-hand-holding-dollar"></i> 總成本 - 雙層政府補助</div>
+                </div>
+
+                <div class="kpi-card accent">
+                    <div class="kpi-title">
+                        <span>20年累積淨獲利</span>
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-net-profit">0.00 萬元</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-sack-dollar"></i> 20年總收益扣除開銷與稅務</div>
+                </div>
+
+                <div class="kpi-card accent">
+                    <div class="kpi-title">
+                        <span>投資報酬率 (ROI)</span>
+                        <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-roi">0.00%</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-chart-pie"></i> 20年淨利 / 實質自籌出資</div>
+                </div>
+            </section>
+
+            <section class="kpi-grid">
+                <div class="kpi-card secondary">
+                    <div class="kpi-title">
+                        <span>內部報酬率 (自有資金 IRR)</span>
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-irr-equity">0.00%</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-circle-check"></i> 全自有資金、不計融資投報</div>
+                </div>
+                
+                <div class="kpi-card secondary" id="kpi-loan-irr-card">
+                    <div class="kpi-title">
+                        <span>內部報酬率 (融資槓桿 IRR)</span>
+                        <i class="fa-solid fa-business-time"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-irr-loan">0.00%</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-landmark"></i> 扣除融資本息後之槓桿報酬</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-title">
+                        <span>回收年限 (含維運費與稅)</span>
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-payback-om">0 年</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-calendar-day"></i> 實質扣減維運開銷之回收年</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-title">
+                        <span>回收年限 (不含維運粗估)</span>
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <div class="kpi-value" id="kpi-payback-no-om">0 年</div>
+                    <div class="kpi-footer"><i class="fa-solid fa-calendar-check"></i> 單純發電收入抵消建置成本</div>
+                </div>
+            </section>
+
+            <!-- Charts Panel -->
+            <section class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title"><i class="fa-solid fa-chart-line"></i> 20年累積現金流回收軌跡 (萬元)</h4>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="cashflow-chart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title"><i class="fa-solid fa-chart-bar"></i> 年度發電收入與運營支出對比 (萬元)</h4>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="income-expenses-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ESG Environmental Widgets -->
+            <section class="env-widget-row">
+                <div class="env-widget-card">
+                    <div class="env-icon">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="env-info">
+                        <h4>20年累計減碳效益</h4>
+                        <p class="val" id="env-co2">0.0 噸</p>
+                        <p class="sub"><i class="fa-solid fa-circle-info"></i> 依台灣最新电力排放係數 0.495 kg/度 換算</p>
+                    </div>
+                </div>
+                <div class="env-widget-card">
+                    <div class="env-icon">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div class="env-info">
+                        <h4>等效植樹貢獻</h4>
+                        <p class="val" id="env-trees">0 棵/年</p>
+                        <p class="sub"><i class="fa-solid fa-circle-info"></i> 依林務局每棵林木年吸碳量 12 kg 換算</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Financial Spreadsheet Detail -->
+            <section class="table-card">
+                <div class="table-header">
+                    <h4 class="chart-title"><i class="fa-solid fa-table-list"></i> 20 年期專案財務分析明細表 (損益與現金流量)</h4>
+                    <div class="table-actions">
+                        <button id="export-png-btn" class="table-btn accent" disabled style="opacity: 0.5; pointer-events: none; cursor: not-allowed;">
+                            <i class="fa-solid fa-file-image"></i> 下載評估圖 PNG (暫不開放)
+                        </button>
+                        <button id="export-excel-btn" class="table-btn primary" disabled style="opacity: 0.5; pointer-events: none; cursor: not-allowed;">
+                            <i class="fa-solid fa-file-excel"></i> 下載 Excel 財務模型 (暫不開放)
+                        </button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; position: sticky; left: 0; background: #0f1624; z-index: 10;">期數(年)</th>
+                                <th>營業收入(售電)</th>
+                                <th>1.維護費用</th>
+                                <th>2.電錶租金</th>
+                                <th>3.回收費用</th>
+                                <th>4.設備折舊</th>
+                                <th>5.營運雜費</th>
+                                <th>6.產險費用</th>
+                                <th>7.融資利息</th>
+                                <th>稅後淨利</th>
+                                <th>年度現金流</th>
+                                <th>累積現金流</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cashflow-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+                </div>
+
+                <div id="explanation-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-circle-question"></i> BIPV 財務效益試算邏輯說明</h2>
+                <button id="modal-close-btn" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Section 1 -->
+                <div class="modal-section-card">
+                    <div class="modal-section-title">
+                        <i class="fa-solid fa-calculator"></i> 1. 標準會計與投資報酬率公式
+                    </div>
+                    
+                    <div class="modal-item">
+                        <div class="modal-item-title">自籌出資投資報酬率 (ROI)</div>
+                        <div class="modal-formula-box">
+                            ROI = (20年累計淨獲利) / 實質自籌出資
+                        </div>
+                        <p><em>核心說明：</em>實質自籌出資已為您自動扣除「政府建置補助款」與「自訂額外補助」，真實呈現業主以自有資金投入專案後的純投資回報率 (ROI)。</p>
+                    </div>
+
+                    <div class="modal-item">
+                        <div class="modal-item-title">模組回收費用的折舊與攤提</div>
+                        <p>依據台灣能源政策，模組回收費用 (每 kW 提撥 1,000 元) 在前 10 年分攤完畢後，該筆提撥金額會計入設備殘值，並在其折舊年限（預設 15 年）中分年折舊，絕不重複扣減，確保會計科目基數 100% 正確。</p>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="modal-section-card">
+                    <div class="modal-section-title">
+                        <i class="fa-solid fa-chart-line"></i> 2. 財務指標與現金流計算方法
+                    </div>
+                    
+                    <div class="modal-item">
+                        <div class="modal-item-title">年度現金流 (Annual Cashflow)</div>
+                        <div class="modal-formula-box">
+                            年度現金流 = 稅後淨利 + 設備折舊 - 融資本金償還
+                        </div>
+                        <p><em>核心說明：</em>設備折舊為「非現金支出」（不涉及實際現金流出），因此在計算現金流時需加回；若專案有進行融資貸款，則需扣除每期應償還之貸款本金。</p>
+                    </div>
+
+                    <div class="modal-item">
+                        <div class="modal-item-title">內部報酬率 (IRR)</div>
+                        <div class="modal-formula-box">
+                            NPV = &Sigma; [ CF_t / (1 + r)^t ] = 0 (t 從 0 到 20 年)
+                        </div>
+                        <p><em>核心說明：</em>求解折現率 <em>r</em> (即為 IRR)，使得 20 年期所有年度現金流折現後的淨現值 (NPV) 正好等於 0，用以評估該筆投資的實質年化複利回報率。</p>
+                    </div>
+
+                    <div class="modal-item">
+                        <div class="modal-item-title">資金回收年限 (Payback Period)</div>
+                        <p>系統年底將各期現金流持續累加，累積現金流首度「由負轉正」的年份即判定為資金回收年限。本系統同時提供「含維運費」與「不含維運費」之雙重評估指標。</p>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="modal-section-card">
+                    <div class="modal-section-title">
+                        <i class="fa-solid fa-sun"></i> 3. 垂直牆面發電折減與地區日照
+                    </div>
+                    
+                    <div class="modal-item">
+                        <div class="modal-item-title">立面發電折減係數 (垂直 90 度安裝)</div>
+                        <p>BIPV 太陽能牆為垂直 90 度安裝，與最佳傾斜角度的屋頂相比，日照輻射會打折扣。故系統設有「立面發電係數」進行修正。雖然發電效率略低，但在實務上能省下昂貴的帷幕牆外牆建材與浪板施工成本，且能獲得雙層補助，整體效益依然非常顯著。</p>
+                    </div>
+                </div>
+            </div>
+                <div id="detailed-model-modal" class="modal-overlay">
+        <div class="modal-card" style="max-width: 900px; width: 90%; background: #0b111e; border: 1px solid rgba(255,255,255,0.08);">
+            <div class="modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
+                <h2><i class="fa-solid fa-file-invoice-dollar" style="color: #10b981;"></i> BIPV 詳細財務預估與細項拆分模型</h2>
+                <button id="detailed-model-close-btn" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" style="padding-top: 1rem;">
+                <!-- Detailed PNG Export Button at the Top for High Visibility -->
+                <div class="modal-section-card" style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15); display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; margin-bottom: 1.25rem;">
+                    <div>
+                        <h4 style="margin: 0; color: #10b981; font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-file-image"></i> 匯出詳細效益報告 (PNG)</h4>
+                        <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; color: #9ca3af;">下載包含成本拆分與20年發電明細的超高畫質專業評估報告圖檔</p>
+                    </div>
+                    <button id="download-detailed-png-btn" class="custom-btn accent" disabled style="padding: 0.5rem 1.2rem; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; border-radius: 0.50rem; opacity: 0.5; pointer-events: none; cursor: not-allowed;">
+                        <i class="fa-solid fa-download"></i> 下載詳細報告 PNG (暫不開放)
+                    </button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+                    <!-- CapEx Breakdown -->
+                    <div class="modal-section-card" style="margin-bottom: 0;">
+                        <div class="modal-section-title" style="color: #f59e0b; border-color: rgba(255,255,255,0.08);">
+                            <i class="fa-solid fa-industry"></i> 一、 初期建置成本明細拆分 (CapEx)
+                        </div>
+                        <div style="padding: 0.5rem 0;" id="capex-breakdown-container">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <!-- OpEx Breakdown -->
+                    <div class="modal-section-card" style="margin-bottom: 0;">
+                        <div class="modal-section-title" style="color: #06b6d4; border-color: rgba(255,255,255,0.08);">
+                            <i class="fa-solid fa-screwdriver-wrench"></i> 二、 首年營運開銷明細拆分 (OpEx)
+                        </div>
+                        <div style="padding: 0.5rem 0;" id="opex-breakdown-container">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-grid">
@@ -260,5 +722,7 @@
 
     <!-- Custom Script -->
     <script src="script.js"></script>
+    <script src="calculator.js"></script>
+    
 </body>
 </html>
