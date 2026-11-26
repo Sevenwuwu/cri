@@ -11,20 +11,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.crienergytw.com/calculator.html">
     <meta property="og:image" content="https://www.crienergytw.com/images/logo.png">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="calculator.css">
     <link rel="icon" type="image/png" href="images/logo.png">
-    <!-- ChartJS for financial charting -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- SheetJS for exporting real Excel file -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- ChartJS 4.4.7 with SRI -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" integrity="sha512-OCzUHf1XssNh1lvCVORQPouRIBXKe3hkZKMIhVhI7bh10TcncQhQxq1E3H18Eod9kqVdkgTHYXnMRI79RwCkOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- SheetJS 0.20.3 with SRI (Latest secure release) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.20.3/dist/xlsx.full.min.js" integrity="sha512-AXreDm/maQt99+BKeuV5VUY8x0xBAZPX6OYenHRlRwG/C35PKcZ7GQXITTR8Zf3cLHeTfwVDLEMBBPf7laKtAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="canonical" href="https://www.crienergytw.com/calculator.html">
 </head>
 <body class="lang-zh">
@@ -677,9 +679,9 @@
                 <p lang="zh" class="footer-desc">致力開創可服務人類的乾淨、可再生、智能光儲能源。專注於次世代輕質柔性單晶太陽能與高安全液冷儲能系統研發量產，台灣在地封裝與整合製造，企業淨零碳排的最佳永續夥伴。</p>
                 <p lang="en" class="footer-desc">Committed to developing clean, renewable, and intelligent solar & storage systems that serve humanity. Offering Taiwan-made flexible modules and advanced LFP storage cabinets.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
 
@@ -714,8 +716,8 @@
             <div class="container footer-bottom-flex">
                 <p>&copy; 2026 CRi 嘉睿能源股份有限公司. All Rights Reserved. <span lang="zh">台灣在地整合製造</span><span lang="en">Integrated in Taiwan</span></p>
                 <p>
-                    <a href="#"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
-                    <a href="#"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
+                    <a href="privacy.html"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
+                    <a href="terms.html"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
                 </p>
             </div>
         </div>

@@ -212,6 +212,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (evaluationForm) {
         evaluationForm.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Anti-Spam Botcheck Honeypot Verification
+            const botcheck = evaluationForm.querySelector('input[name="botcheck"]');
+            if (botcheck && botcheck.checked) {
+                console.warn("Automated bot submission dropped via honeypot.");
+                return;
+            }
+
+            // Legal & PDPA Consent Verification
+            const privacyConsent = document.getElementById('privacyConsent');
+            if (privacyConsent && !privacyConsent.checked) {
+                const isEn = document.body.classList.contains('lang-en');
+                alert(isEn ? 'Please review and agree to the Privacy Policy and Terms of Service before submitting.' : '請先勾選同意隱私權政策與服務條款後再送出申請。');
+                return;
+            }
             
             const submitBtn = document.getElementById('formSubmitBtn');
             const origContent = submitBtn.innerHTML;
@@ -290,7 +305,7 @@ ${formMessage}
                     if (typeof calculateROI === 'function') calculateROI();
                 } else {
                     console.error("Web3Forms Error:", json);
-                    alert(isEn ? 'Submission failed: ' + json.message : '送出失敗，錯誤訊息：' + json.message);
+                    alert(isEn ? 'Unable to submit your inquiry at this moment. Please email seven@crienergytw.com directly or call +886-4-2491-9698.' : '評估申請暫時無法送出，請直接來信 seven@crienergytw.com 或致電 04-2491-9698，我們將由專人為您服務。');
                 }
             })
             .catch(error => {
