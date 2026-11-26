@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '<i class="fa-solid fa-spinner fa-spin"></i> 正在送出評估申請...';
 
             // Web3Forms Access Key configuration
-            // Note to Developer/User: Enter your free Access Key here from https://web3forms.com/ to send emails to seven@crienergytw.com
+            // Note to Developer/User: Enter your free Access Key here from https://web3forms.com/ to send emails to service@crienergytw.com
             const accessKey = "c1c5957c-98ef-4b25-98c8-a9dab75d62c1"; 
 
             // Extract form inputs
@@ -305,7 +305,7 @@ ${formMessage}
                     if (typeof calculateROI === 'function') calculateROI();
                 } else {
                     console.error("Web3Forms Error:", json);
-                    alert(isEn ? 'Unable to submit your inquiry at this moment. Please email seven@crienergytw.com directly or call +886-4-2491-9698.' : '評估申請暫時無法送出，請直接來信 seven@crienergytw.com 或致電 04-2491-9698，我們將由專人為您服務。');
+                    alert(isEn ? 'Unable to submit your inquiry at this moment. Please email service@crienergytw.com directly or call +886-4-2491-9698.' : '評估申請暫時無法送出，請直接來信 service@crienergytw.com 或致電 04-2491-9698，我們將由專人為您服務。');
                 }
             })
             .catch(error => {
