@@ -9,8 +9,13 @@
     <meta property="og:title" content="CRi 嘉睿能源 | 輕質柔性太陽能與智慧電網級儲能整合專家">
     <meta property="og:description" content="CRi 嘉睿能源專注於次世代輕質柔性單晶太陽能（效率 30%+ 鈣鈦礦研發）與高安全液冷儲能系統研發整合，具備與多家上市大型企業深度合作經驗，提供用電大戶與電網級光儲一體化解決方案。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.crienergytw.com/index.html">
+    <meta property="og:url" content="https://www.crienergytw.com/">
     <meta property="og:image" content="https://www.crienergytw.com/images/logo.png">
+        <!-- Geographic & Localization Meta Tags (Natural GEO) -->
+    <meta name="geo.region" content="TW-TXG">
+    <meta name="geo.placename" content="台中市大里區">
+    <meta name="geo.position" content="24.0991;120.6974">
+    <meta name="ICBM" content="24.0991, 120.6974">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <!-- Google Fonts -->
@@ -23,37 +28,76 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="canonical" href="https://www.crienergytw.com/">
-    <!-- JSON-LD Structured Data for Organization -->
+        <!-- JSON-LD Structured Data for Enterprise Knowledge Graph (Natural GEO) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CRi 嘉睿能源",
-      "url": "https://www.crienergytw.com",
-      "logo": "https://www.crienergytw.com/images/logo.png",
-      "description": "CRi 嘉睿能源專注於次世代輕質柔性單晶太陽能與高安全液冷儲能系統研發整合，提供用電大戶與電網級光儲一體化解決方案。",
-      "address": [
+      "@graph": [
         {
-          "@type": "PostalAddress",
-          "name": "營運處",
-          "streetAddress": "大里區科技路168號5樓-3",
-          "addressLocality": "台中市",
-          "addressCountry": "TW"
-        },
-        {
-          "@type": "PostalAddress",
-          "name": "公司登記地址",
-          "streetAddress": "中山區南京東路2段111號6樓",
-          "addressLocality": "臺北市",
-          "addressCountry": "TW"
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "https://www.crienergytw.com/#organization",
+          "name": "CRi 嘉睿能源",
+          "alternateName": ["CRi Energy", "嘉睿能源股份有限公司"],
+          "url": "https://www.crienergytw.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.crienergytw.com/images/logo.png"
+          },
+          "description": "CRi 嘉睿能源專注於次世代輕質柔性太陽能模組與高安全液冷儲能系統之研發整合，具備與多家上市大型企業深度合作經驗，提供用電大戶條款合規、低承重廠房屋頂光電及電網級光儲一體化解決方案。",
+          "email": "service@crienergytw.com",
+          "telephone": "+886-4-2491-9698",
+          "priceRange": "$$$$",
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "name": "營運處",
+              "streetAddress": "大里區科技路168號5樓-3",
+              "addressLocality": "台中市",
+              "addressRegion": "台中市",
+              "postalCode": "412",
+              "addressCountry": "TW"
+            },
+            {
+              "@type": "PostalAddress",
+              "name": "公司登記地址",
+              "streetAddress": "中山區南京東路2段111號6樓",
+              "addressLocality": "臺北市",
+              "addressRegion": "臺北市",
+              "postalCode": "104",
+              "addressCountry": "TW"
+            }
+          ],
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 24.0991,
+            "longitude": 120.6974
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "Taiwan"
+            },
+            {
+              "@type": "Country",
+              "name": "United Kingdom"
+            }
+          ],
+          "knowsAbout": [
+            "輕質柔性太陽能 (Lightweight Flexible Solar Modules)",
+            "次世代鈣鈦礦疊層電池 (Perovskite Tandem Solar Cells)",
+            "工商業智慧液冷儲能 (C&I Liquid Cooling ESS)",
+            "用電大戶條款綠能整合 (Taiwan Major Energy Consumer Mandates)",
+            "光儲充智慧微電網 (Solar-plus-Storage Microgrid EPC)"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+886-4-2491-9698",
+            "contactType": "customer service",
+            "email": "service@crienergytw.com",
+            "availableLanguage": ["zh-TW", "en"]
+          }
         }
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+886-4-2491-9698",
-        "contactType": "customer service",
-        "email": "service@crienergytw.com"
-      }
+      ]
     }
     </script>
 </head>
@@ -61,7 +105,7 @@
     <!-- Navigation Header -->
     <header class="header">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
+            <a href="./" class="logo">
                 <img src="images/logo.png" alt="CRi Logo" width="40" height="40" style="border-radius:50%; object-fit:cover; border: 1.5px solid var(--border);">
                 <div class="logo-text">
                     <span class="brand-cri">CRi</span>
@@ -71,13 +115,13 @@
             </a>
 
             <nav class="nav-links">
-                <a href="index.html" class="active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
-                <a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
-                <a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
-                <a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
-                <a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
-                <a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
-                <a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+                <a href="./" class="active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+                <a href="about"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+                <a href="products-solar"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+                <a href="products-storage"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+                <a href="partnerships"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+                <a href="calculator"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+                <a href="contact"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
             </nav>
 
             <div class="header-actions">
@@ -85,7 +129,7 @@
                     <span lang="zh"><i class="fa-solid fa-globe"></i> EN</span>
                     <span lang="en"><i class="fa-solid fa-globe"></i> 繁中</span>
                 </button>
-                <a href="contact.html" class="btn btn-accent nav-cta">
+                <a href="contact" class="btn btn-accent nav-cta">
                     <span lang="zh">免費評估</span>
                     <span lang="en">Free Quote</span>
                 </a>
@@ -103,14 +147,14 @@
             <button class="drawer-close"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <nav class="drawer-links">
-            <a href="index.html" class="drawer-link active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
-            <a href="about.html" class="drawer-link"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
-            <a href="products-solar.html" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
-            <a href="products-storage.html" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
-            <a href="partnerships.html" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
-            <a href="calculator.html" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
-            <a href="contact.html" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
-            <a href="contact.html" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
+            <a href="./" class="drawer-link active"><span lang="zh">首頁</span><span lang="en">Home</span></a>
+            <a href="about" class="drawer-link"><span lang="zh">核心技術</span><span lang="en">Tech</span></a>
+            <a href="products-solar" class="drawer-link"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a>
+            <a href="products-storage" class="drawer-link"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a>
+            <a href="partnerships" class="drawer-link"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a>
+            <a href="calculator" class="drawer-link"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a>
+            <a href="contact" class="drawer-link"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a>
+            <a href="contact" class="drawer-link btn btn-accent text-center mt-2"><span lang="zh">免費評估</span><span lang="en">Free Quote</span></a>
         </nav>
     </div>
 
@@ -130,11 +174,11 @@
                 <p lang="en" class="hero-subtitle">Leading the seamless fusion of lightweight flexible solar, building-integrated photovoltaics (BIPV), and intelligent liquid-cooled BESS. Delivering secure, reliable, and bankable self-generation energy systems wherever you need it.</p>
 
                 <div class="hero-buttons">
-                    <a href="products-solar.html" class="btn btn-accent btn-lg">
+                    <a href="products-solar" class="btn btn-accent btn-lg">
                         <span lang="zh">柔性光電</span>
                         <span lang="en">Solar Modules</span>
                     </a>
-                    <a href="products-storage.html" class="btn btn-outline btn-lg">
+                    <a href="products-storage" class="btn btn-outline btn-lg">
                         <span lang="zh">智能儲能</span>
                         <span lang="en">Energy Storage</span>
                     </a>
@@ -260,7 +304,7 @@
             </div>
 
             <div class="text-center mt-3">
-                <a href="about.html" class="btn btn-outline">
+                <a href="about" class="btn btn-outline">
                     <span lang="zh">深入了解 3i 技術與專利項目</span>
                     <span lang="en">Explore 3i Technology &amp; Patents</span>
                 </a>
@@ -288,7 +332,7 @@
                         <h3>輕質柔性單晶太陽能</h3>
                         <p lang="zh" class="product-desc">厚度僅 2.7mm、效率高達 23.5%。無鋁框、無玻璃，可直接以結構膠貼合於老舊屋頂、曲面溫室及大樓立面，徹底排除滲水隱憂與限重困境。</p>
                         <p lang="en" class="product-desc">Flexible, thin monocrystalline panels. Glued flat without brackets, preventing structural damage and leakage on factories or BIPV facades.</p>
-                        <a href="products-solar.html" class="btn btn-outline btn-block mt-2">
+                        <a href="products-solar" class="btn btn-outline btn-block mt-2">
                             <span lang="zh">光電產品規格</span>
                             <span lang="en">Solar Specifications</span>
                         </a>
@@ -304,7 +348,7 @@
                         <h3>CRi-ESS 智慧儲能系統</h3>
                         <p lang="zh" class="product-desc">引進 12,000 次超長壽命、零衰減專利電芯。提供 344kWh 工商業液冷儲能櫃與 MWh 集裝箱貨櫃，全方位支援高耗能企業調峰與峰谷差套利。</p>
                         <p lang="en" class="product-desc">12,000-cycle high safety ESS platforms. Supports peak shaving and peak-valley arbitrage for industrial and utility sectors.</p>
-                        <a href="products-storage.html" class="btn btn-outline btn-block mt-2">
+                        <a href="products-storage" class="btn btn-outline btn-block mt-2">
                             <span lang="zh">儲能系統規格</span>
                             <span lang="en">ESS Specifications</span>
                         </a>
@@ -375,7 +419,7 @@
                     </div>
                 </div>
                 <div style="margin-top: 24px;">
-                    <a href="partnerships.html" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 18px;">
+                    <a href="partnerships" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 18px;">
                         <span lang="zh">查看大型企業合作概況 <i class="fa-solid fa-arrow-right"></i></span>
                         <span lang="en">View Enterprise Capabilities <i class="fa-solid fa-arrow-right"></i></span>
                     </a>
@@ -405,13 +449,13 @@
                 <h4 lang="zh">快速連結</h4>
                 <h4 lang="en">Quick Links</h4>
                 <ul>
-                    <li><a href="about.html"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
-                    <li><a href="products-solar.html"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
-                    <li><a href="products-storage.html"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
+                    <li><a href="about"><span lang="zh">核心技術</span><span lang="en">Tech</span></a></li>
+                    <li><a href="products-solar"><span lang="zh">柔性光電</span><span lang="en">Solar</span></a></li>
+                    <li><a href="products-storage"><span lang="zh">智能儲能</span><span lang="en">Storage</span></a></li>
                     <li></li>
-                    <li><a href="partnerships.html"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
-                    <li><a href="calculator.html"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
-                    <li><a href="contact.html"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
+                    <li><a href="partnerships"><span lang="zh">合作夥伴</span><span lang="en">Partnerships</span></a></li>
+                    <li><a href="calculator"><span lang="zh">效益估算</span><span lang="en">ROI Calc</span></a></li>
+                    <li><a href="contact"><span lang="zh">聯絡我們</span><span lang="en">Contact</span></a></li>
                 </ul>
             </div>
 
@@ -432,8 +476,8 @@
             <div class="container footer-bottom-flex">
                 <p>&copy; 2026 CRi 嘉睿能源股份有限公司. All Rights Reserved. <span lang="zh">台灣在地整合製造</span><span lang="en">Integrated in Taiwan</span></p>
                 <p>
-                    <a href="privacy.html"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
-                    <a href="terms.html"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
+                    <a href="privacy"><span lang="zh">隱私權政策</span><span lang="en">Privacy Policy</span></a> | 
+                    <a href="terms"><span lang="zh">服務條款</span><span lang="en">Terms of Service</span></a>
                 </p>
             </div>
         </div>

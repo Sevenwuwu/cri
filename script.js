@@ -64,12 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formMessageEl) formMessageEl.placeholder = placeholders[lang].formMessage;
     }
 
-    // Highlight Active Page in Nav Links
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    // 1.1 Seamless Clean URL Beautifier (Auto-remove .html extension if accessed directly)
+    if (window.location.protocol.startsWith('http') && window.location.pathname.endsWith('.html')) {
+        let cleanPath = window.location.pathname.replace(/\.html$/, '');
+        if (cleanPath.endsWith('/index')) {
+            cleanPath = cleanPath.slice(0, -6) || '/';
+        }
+        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+
+    // 1.2 Highlight Active Page in Nav Links (Compatible with both clean & legacy paths)
+    const rawPath = window.location.pathname.replace(/\/$/, '').split('/').pop() || '';
+    const currentNormalized = rawPath.replace(/\.html$/, '');
     const navLinksList = document.querySelectorAll('.nav-links a, .drawer-links a');
     navLinksList.forEach(link => {
-        const hrefPath = link.getAttribute('href');
-        if (hrefPath === currentPath) {
+        let href = (link.getAttribute('href') || '').replace(/^\.\//, '').replace(/\/$/, '');
+        let hrefNormalized = href.replace(/\.html$/, '');
+        if ((currentNormalized === '' && (hrefNormalized === '' || hrefNormalized === 'index')) ||
+            (currentNormalized !== '' && hrefNormalized === currentNormalized)) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
