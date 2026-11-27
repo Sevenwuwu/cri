@@ -2282,3 +2282,315 @@ textarea.form-control {
 .pulse-blue-active {
     animation: pulse-blue-glow 2s infinite !important;
 }
+
+
+/* ==========================================================================
+   KINERIX & BIPV ADVANCED ARCHITECTURAL SHOWCASE STYLES
+   ========================================================================== */
+
+.kinerix-hero-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(5, 10, 20, 0.98));
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 60px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+}
+
+@media (max-width: 992px) {
+    .kinerix-hero-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.kinerix-hero-content {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.kinerix-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--primary-light);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.kinerix-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.kinerix-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 28px 0;
+}
+
+@media (max-width: 600px) {
+    .kinerix-stats-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.kinerix-stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+}
+
+.kinerix-stat-val {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-light);
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+.kinerix-stat-lbl {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.4;
+}
+
+.kinerix-hero-img-wrap {
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+    background: #0b1120;
+}
+
+.kinerix-hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.kinerix-hero-card:hover .kinerix-hero-img-wrap img {
+    transform: scale(1.03);
+}
+
+/* WSM Architectural Matrix Grid */
+.wsm-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 40px 0 60px 0;
+}
+
+@media (max-width: 1200px) {
+    .wsm-matrix-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .wsm-matrix-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wsm-card {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.wsm-card:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.2);
+}
+
+.wsm-card-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--primary-light);
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: fit-content;
+    margin-bottom: 12px;
+}
+
+.wsm-card-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.wsm-card-spec-row {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 10px;
+}
+
+.wsm-img-container {
+    height: 180px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.wsm-img-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.wsm-card-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+    font-size: 0.82rem;
+    color: var(--gray);
+    flex-grow: 1;
+}
+
+.wsm-card-specs li {
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+}
+
+.wsm-card-specs strong {
+    color: var(--dark);
+}
+
+/* Strategic Architecture Solutions Showcase */
+.solution-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+@media (max-width: 992px) {
+    .solution-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.solution-card {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.solution-card:hover {
+    border-color: var(--accent-light);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -12px rgba(37, 99, 235, 0.25);
+}
+
+.solution-img-wrap {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    background: #0f172a;
+}
+
+.solution-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.solution-card:hover .solution-img-wrap img {
+    transform: scale(1.05);
+}
+
+.solution-body {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.solution-num {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent-light);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.solution-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.solution-desc {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.solution-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+
+.solution-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.solution-points li i {
+    color: var(--primary-light);
+    margin-top: 3px;
+    font-size: 0.8rem;
+}
